@@ -1,5 +1,5 @@
 <?php
-#define('EMBEDDED',true);
+define('EMBEDDED',true);
 #require('validateUser.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,8 +21,9 @@ else
 <body>
 <?php
  echo '<div id="container">';
- echo '<div id="content"><br /><h2 style="text-align: center">Old Southern Orchard <span class="subtitle"></span></h2>';
- echo '<table width="440" id="orchardTable">';
+ require('navBar.php');
+ echo '<div id="content"><br /><h2>Old Southern Orchard <span class="subtitle"></span></h2>';
+ echo '<table id="orchardTable">';
  echo    '<tr>
 				<td class="bodyText">
 					<a href="images/CrabApple-Hewes.jpg" alt="Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
@@ -92,6 +93,9 @@ echo '<tr>
 				<td class="bodyText">
 					<a href="images/Loquat-Oliver.jpg" alt="Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
 				</td>
+		</tr>';
+echo '<tr>
+			<td colspan="4" style="width: 1px; height: 10px; border: 0px;">&nbsp;</td>
 		</tr>';
 ?>
 </body>

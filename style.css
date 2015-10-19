@@ -1,2 +1,67 @@
-body {color: red;}
-#orchardTable {margin-left:auto; margin-right:auto; border: 5px solid white;}
+body 
+{
+	background-image: url(images/bgtile.jpg);
+	background-repeat: repeat-x;
+	background-color: #a09b90;
+	margin: 20px 0 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#content {
+	background-image: url(images/sidebarbackground.jpg);
+	background-repeat: repeat-y;
+	background-color: #fff;
+	border-bottom: 2px #fff solid;
+	border-left: 0px;
+	padding-left: 250px;
+}
+
+#container {
+	margin: 0 auto;
+	width: 1004px;
+	height: 100%;
+}
+
+#contentcontainer {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: 200;
+	color: #a00c0a;
+}
+
+#orchardTable 
+{
+	margin-left:0px; 
+	margin-right:0px; 
+	background-color: white;
+	padding: 3px;
+	width: 440px;
+}
+
+/* NAVIGATION CSS */
+#navigation {
+	background-color: #9da06a;
+	border-top: 2px #fff solid;
+	border-bottom: 2px #fff solid;
+	padding: 5px 15px 5px 15px;
+	clear: both;
+}
+
+a.nav {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #fff;
+	text-decoration: none;
+}
+
+a.nav:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #993300;
+	text-decoration: underline;
+}
