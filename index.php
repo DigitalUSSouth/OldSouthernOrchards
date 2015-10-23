@@ -26,72 +26,72 @@ else
  echo '<table id="orchardTable">';
  echo    '<tr>
 				<td class="bodyText">
-					<a href="images/CrabApple-Hewes.jpg" alt="Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
-				</td>
+					<a href="orchard.php?orcName=Crab Apple" alt="Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
+				</td> 
    				<td class="bodyText">
-					<a href="images/Plum-Lafayette.jpg" alt="Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" /></a>
+					<a href="orchard.php?orcName=Plum" alt="Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Lime-Lisbon.jpg" alt="Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" /></a>
+					<a href="orchard.php?orcName=Lime" alt="Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Grapefruit-Royal.jpg" alt="Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" /></a>
+					<a href="orchard.php?orcName=Grapefruit" alt="Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" /></a>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="images/Orange-Fausta.jpg" alt="Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" /></a>
+					<a href="orchard.php?orcName=Orange" alt="Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" /></a>
 				</td>
    				<td class="bodyText">
-					<a href="images/Apricot-Stanford.jpg" alt="Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" /></a>
+					<a href="orchard.php?orcName=Apricot" alt="Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Quince-Champion.jpg" alt="Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" /></a>
+					<a href="orchard.php?orcName=Quince" alt="Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Cherry-Bigarreau.jpg" alt="Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" /></a>
+					<a href="orchard.php?orcName=Cherry" alt="Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" /></a>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="images/Lemon-Sport.jpg" alt="Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" /></a>
+					<a href="orchard.php?orcName=Lemon" alt="Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" /></a>
 				</td>
    				<td class="bodyText">
-					<a href="images/Mulberry-Travis.jpg" alt="Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" /></a>
+					<a href="orchard.php?orcName=Mulberry" alt="Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Peach-RedCheek.jpg" alt="Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" /></a>
+					<a href="orchard.php?orcName=Peach" alt="Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Pear-Read.jpg" alt="Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" /></a>
+					<a href="orchard.php?orcName=Pear" alt="Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" /></a>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="images/Grape-Muscadine.jpg" alt="Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" /></a>
+					<a href="orchard.php?orcName=Grape" alt="Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" /></a>
 				</td>
    				<td class="bodyText">
-					<a href="images/Apple-CarolinaBeauty.jpg" alt="Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
+					<a href="orchard.php?orcName=Apple" alt="Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Persimmon-Fuyu.jpg" alt="Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" /></a>
+					<a href="orchard.php?orcName=Persimmon" alt="Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Kumquat-Passmore.jpg" alt="Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" /></a>
+					<a href="orchard.php?orcName=Kumquat" alt="Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" /></a>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="images/Pawpaw-1924.jpg" alt="Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" /></a>
+					<a href="orchard.php?orcName=Pawpaw" alt="Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" /></a>
 				</td>
    				<td class="bodyText">
-					<a href="images/Mango-Johnson.jpg" alt="Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" /></a>
+					<a href="orchard.php?orcName=Mango" alt="Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Tangerine-Dancy.jpg" alt="Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" /></a>
+					<a href="orchard.php?orcName=Tangerine" alt="Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" /></a>
 				</td>
 				<td class="bodyText">
-					<a href="images/Loquat-Oliver.jpg" alt="Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
+					<a href="orchard.php?orcName=Loquat" alt="Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
 				</td>
 		</tr>';
 echo '<tr>
