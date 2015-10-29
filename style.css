@@ -1,15 +1,24 @@
 body 
 {
-	background-image: url(images/bgtile.jpg);
+	/*background-image: url(images/bgtile.jpg);*/
 	background-repeat: repeat-x;
 	background-color: #a09b90;
 	margin: 20px 0 0 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.pageName 
+{
+   font:28px georgia;
+   color: #a00c0a;
+   letter-spacing:.1em;
+   line-height:26px;
+}
+
+   
 #content {
-	background-image: url(images/sidebarbackground.jpg);
-	background-repeat: repeat-y;
+	/*background-image: url(images/sidebarbackground.jpg);
+	background-repeat: repeat-y;*/
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
