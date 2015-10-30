@@ -17,6 +17,7 @@ else
 	echo '<link rel="stylesheet" href="style.css" type="text/css">';
 }
 ?>
+<script type="text/javascript" src="OSO.js"></script>
 </head>
 <body>
 <?php
@@ -24,10 +25,34 @@ else
  echo '<div style="visibility: hidden;">';
  require('navBar.php');
  echo '</div>';
- echo '<div id="content"><br /><h2>Old Southern Orchard <span class="subtitle"></span></h2>';
+ echo '<div id="content"><br /><h2 id="oso_header" style="text-align: center">Old Southern Orchards<span class="subtitle"></span></h2>';
  echo '<table id="orchardTable">';
  echo    '<tr>
-				<td class="bodyText">
+				<td rowspan="5" style="vertical-align: top;">
+					<nav id="fruitMenu" style="width:175px;">
+					<a href="blank.htm" class="recipe-links" alt="Apple Recipes">Apple Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Apricot Recipes">Apricot Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Cherry Recipes">Cherry Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Crab Apple Recipes">Crab Apple Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Grape Recipes">Grape Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Grapefruit Recipes">Grapefruit Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Kumquat Recipes">Kumquat Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Lemon Recipes">Lemon Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Lime Recipes">Lime Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Loquat Recipes">Loquat Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Mango Recipes">Mango Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Mulberry Recipes">Mulberry Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Orange Recipes">Orange Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Pawpaw Recipes">Pawpaw Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Peach Recipes">Peach Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Pear Recipes">Pear Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Persimmon Recipes">Persimmon Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Plum Recipes">Plum Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Quince Recipes">Quince Recipes</a>
+					<a href="blank.htm" class="recipe-links" alt="Tangerine Recipes">Tangerine Recipes</a>
+					</nav>
+				</td>
+				<td class="bodyText" id="fruitTableStart">
 					<a href="orchard.php?orcName=Apple" alt="Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
 				</td>
 				<td class="bodyText">
