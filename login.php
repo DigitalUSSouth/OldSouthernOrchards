@@ -1,6 +1,7 @@
 <?php
 define('EMBEDDED',true);
-#require('validateUser.php');
+define('OSO_DB', true);
+require('validateUser.php');
 if ($isLoggedIn == 1)
 {
    header('Location: index.php');

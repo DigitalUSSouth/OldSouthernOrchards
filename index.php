@@ -1,6 +1,7 @@
 <?php
 define('EMBEDDED',true);
-#require('validateUser.php');
+define('OSO_DB', true);
+require('validateUser.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,9 +23,9 @@ else
 <body>
 <?php
  echo '<div id="container">';
- echo '<div style="visibility: hidden;">';
+ #echo '<div style="visibility: hidden;">';
  require('navBar.php');
- echo '</div>';
+ #echo '</div>';
  echo '<div id="content"><br /><h2 id="oso_header" style="text-align: center">Old Southern Orchards<span class="subtitle"></span></h2>';
  echo '<table id="orchardTable">';
  echo    '<tr>

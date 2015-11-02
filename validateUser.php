@@ -1,5 +1,5 @@
 <?php
-define('OSO_DB');
+define('OSO_DB',true);
 //set login information
 //$dbUser = 'root';
 //$dbPass = 'root';
@@ -20,7 +20,7 @@ $isLoggedIn = 0;
 
 //if appropriate cookie values are set, let's make sure they are legitimate
 if ((isset($_COOKIE['UU'])) && (isset($_COOKIE['UP'])))
-{
+{	#echo '<script type="text/javascript">alert("'.$_COOKIE['UU'].'")</script>';
    //connect to the database
    $con = mysql_connect("localhost",$dbUser,$dbPass);
    if (!$con)
@@ -30,7 +30,7 @@ if ((isset($_COOKIE['UU'])) && (isset($_COOKIE['UP'])))
    mysql_select_db(getDB(),$con);
 
    //setup up our query
-   $query = "SELECT IsAdmin FROM `Users` WHERE Id = '$_COOKIE[UU]' AND Password = '$_COOKIE[UP]'";
+   $query = "SELECT IsAdmin FROM `Users` WHERE Username = '$_COOKIE[UU]' AND Password = '$_COOKIE[UP]'";
    $result = mysql_query($query);
 
    //if no rows are returned, this username/password combination does not exist

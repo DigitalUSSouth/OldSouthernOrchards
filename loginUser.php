@@ -42,8 +42,8 @@ if (mysql_numrows($result) == 1)
 	}
 	
 	//create cookie
-	setcookie('UU',$userId,time()+3600);
-	setcookie('UP',$userPass,time()+3600);
+	setcookie('UU',$userName,time()+3600,'/');
+	setcookie('UP',$userPass,time()+3600,'/');
 	
 	//successful login, let the user know
 	header('Location: index.php'); 
