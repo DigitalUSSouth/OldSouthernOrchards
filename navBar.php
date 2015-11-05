@@ -1,4 +1,5 @@
 <?php
+session_start();
 //make sure the file is actually embedded within another page
 if (!defined('EMBEDDED')) 
 {
@@ -13,20 +14,18 @@ echo '   <img src="images/header.png" style="padding-left: 15px;" />
             <a class="nav" href="search.php">SEARCH</a>&nbsp;&nbsp;&nbsp;&nbsp;
            ';
 
-
-if (($isLoggedIn == 1) && ($isAdmin == 1))
+if ((isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1') && (isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1'))
 {
    echo '<a class="nav" href="updateOrchard.php">UPDATE ORCHARD</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
    
 }
-
-if ($isLoggedIn == 0)
+if (!isset($_SESSION['ISLOGGEDIN']) || $_SESSION['ISLOGGEDIN']=='0')
 {
    echo '<a class="nav" href="login.php">LOG IN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 }
 else
 {
-   echo '<a class="nav" href="logout.php">LOG OUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+   echo '<a class="nav" href="logoutUser.php">LOG OUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 }
 
 echo '<a class="nav" href="about.php">ABOUT</a> ';

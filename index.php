@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('EMBEDDED',true);
 define('OSO_DB', true);
 require('validateUser.php');

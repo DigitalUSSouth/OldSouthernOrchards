@@ -1,8 +1,7 @@
 <?php
+session_start();
 define('OSO_DB',true);
 //set login information
-//$dbUser = 'root';
-//$dbPass = 'root';
 require('db_info.php');
 $dbUser = getUserName();
 $dbPass = getPassword();
@@ -17,10 +16,9 @@ if (!defined('EMBEDDED'))
 
 //initiate variables
 $isLoggedIn = 0;
-
 //if appropriate cookie values are set, let's make sure they are legitimate
-if ((isset($_COOKIE['UU'])) && (isset($_COOKIE['UP'])))
-{	#echo '<script type="text/javascript">alert("'.$_COOKIE['UU'].'")</script>';
+if ((isset($_SESSION['UU']) && $_SESSION['UU']!='') && (isset($_SESSION['UP']) && $_SESSION['UP']!=''))
+{	
    //connect to the database
    $con = mysql_connect("localhost",$dbUser,$dbPass);
    if (!$con)
@@ -30,7 +28,7 @@ if ((isset($_COOKIE['UU'])) && (isset($_COOKIE['UP'])))
    mysql_select_db(getDB(),$con);
 
    //setup up our query
-   $query = "SELECT IsAdmin FROM `Users` WHERE Username = '$_COOKIE[UU]' AND Password = '$_COOKIE[UP]'";
+   $query = "SELECT IsAdmin FROM `Users` WHERE Username = '$_SESSION[UU]' AND Password = '$_SESSION[UP]'";
    $result = mysql_query($query);
 
    //if no rows are returned, this username/password combination does not exist
@@ -45,7 +43,7 @@ if ((isset($_COOKIE['UU'])) && (isset($_COOKIE['UP'])))
       //let's store the username and password
       while ($row = mysql_fetch_array($result))
       {
-         $isAdmin = $row['IsAdmin'];
+         $_SESSION['ISADMIN'] = $row['IsAdmin'];
          $isLoggedIn = 1;
       }
    }
