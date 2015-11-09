@@ -8,7 +8,8 @@ define('EMBEDDED',true);
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--<link rel="stylesheet" href="mm_lodging1.css" type="text/css" />-->
-<script type="text/javascript" src="OSO.js"></script>
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <?php
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {

@@ -24,7 +24,8 @@ else
 }
 
 ?>
-<script type="text/javascript" src="OSO.js"></script>
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 </head>
 <body onLoad="calcHeight()">
 <?php
