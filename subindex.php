@@ -17,6 +17,10 @@ else
 	echo '<link rel="stylesheet" href="style.css" type="text/css">';	
 }
 ?>
+<link rel="stylesheet" href="jquery.qtip.min.css" type="text/css">
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.qtip.min.js"></script>
 </head>
 <body>
 <?php
@@ -63,20 +67,29 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/vegetable/');
  	}
 
-	$query = $con2->prepare("SELECT filename FROM sub_orc_images WHERE fruitName = ?");
+	$query = $con2->prepare("SELECT filename, name FROM sub_orc_images WHERE fruitName = ? ORDER BY filename");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fruitName);
+$query->bind_result($fileName, $name);
 /*echo '<div id="content">';
 echo '<div style="padding-top: 20px; padding-bottom: 0;"><a href="index.php">&lt; Back to Home</a></div>';
 echo '<div style="line-height: 0; padding-bottom: 15px; margin-bottom: 15px;"><h1>'.$_GET['fruitName'].'</h1></div>';*/
+$rowcount = 0;
+echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
 while ($query->fetch())
 	{
-		echo '<img src="images/'.$fruitName.'" style="margin-left:auto; margin-right:auto;" />';
+		if($rowcount % 5 == 0 && $rowcount != 0)
+			echo '</td><tr>';
+		echo '<td><a href="#" data-toggle="tooltip" title="'.$name.'">
+				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" 
+				onmouseover="$(\'[title]\').qtip();"
+				style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
+			</a></td>';
+		$rowcount++;
 	}
-echo '</div>';
+echo '</tr></table></div>';
 ?>
 </body>
 </html>
