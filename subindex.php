@@ -64,7 +64,7 @@ if (isset($_GET['fruitName']))
  	}
  	else
  	{
- 		header('Location: http://lichen.csd.sc.edu/vegetable/');
+ 		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
 	$query = $con2->prepare("SELECT filename, name FROM sub_orc_images WHERE fruitName = ? ORDER BY filename");
@@ -82,7 +82,7 @@ while ($query->fetch())
 	{
 		if($rowcount % 5 == 0 && $rowcount != 0)
 			echo '</td><tr>';
-		echo '<td><a href="#" data-toggle="tooltip" title="'.$name.'">
+		echo '<td><a href="subsubindex.php?name='.$name.'" data-toggle="tooltip" title="'.$name.'">
 				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" 
 				onmouseover="$(\'[title]\').qtip();"
 				style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
