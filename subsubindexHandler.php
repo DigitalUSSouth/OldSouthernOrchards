@@ -1,3 +1,6 @@
+<?php
+define('OSO_DB', true);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,12 +8,16 @@
 </head>
 <body>
 <?php
+header("Content-type: text/html; charset=utf-8");
+$fruitName = $_GET['name'];
+#echo $fruitName;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
+	 require('db_info.php');
 	//connect to the database
-	/*$host = "localhost";
-	$username = getUserName();
-	$password = getPassword();
+	$host = 'localhost'; 
+	$username = getUserName(); 
+	$password = getPassword(); 
 	$database = getDB();
 
 	$con2 = new mysqli($host, $username, $password, $database);
@@ -29,23 +36,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$query = $con2->prepare("SET COLLATION_CONNECTION='utf8_general_ci'");
 	$query->execute();
 	$query->close();
-*/
+	$content = '';
 	foreach ($_POST AS $key=>$value) 
 	{
-		#$html = htmlspecialchars(stripslashes(trim($value)));
 		$dom = new DOMDocument();
 		@$dom->loadHTML($value);
 		foreach($dom->getElementsByTagName('article') as $article) 
 		{
-			$children = $article->childNodes;
-			foreach ($children as $child) 
-			{ 
-				echo $child->nodeValue;
-				#$innerHTML .= $article->ownerDocument->saveHTML($child);
+			if($article->hasAttribute('id') && $article->getAttribute('id') == 'main_content')
+			{
+				$children = $article->childNodes;
+				foreach ($children as $child) 
+				{ 
+					$content = htmlspecialchars(stripslashes(trim($child->c14n())));
+					echo $content;
+				}
 			}
-			#echo $innerHTML;
 		}
 	}
+	$sql = "UPDATE sub_orc_images SET description = '".$content."' WHERE name = '".$fruitName."'";
+	if ($con2->query($sql) === TRUE) 
+	{
+		echo "Record updated successfully";
+	} 
+	else 
+	{
+		echo "Error updating record: " . $conn->error;
+	}
+	$query->close();
 }
 ?>
 </body>

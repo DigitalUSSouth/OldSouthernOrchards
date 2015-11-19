@@ -63,23 +63,28 @@ if (isset($_GET['name']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename FROM sub_orc_images WHERE name = ?");
+	$query = $con2->prepare("SELECT filename, description FROM sub_orc_images WHERE name = ?");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fileName);
-echo '<form method="post" action="subsubindexHandler.php">';
+$query->bind_result($fileName, $desc);
+if((!isset($desc)) || ctype_space($desc))
+{
+	$desc = 'No content currently in database';
+}
+echo '<form method="post" action="subsubindexHandler.php?name='.$fruitName.'">';
 echo '<section>';
 while ($query->fetch())
 	{
 		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" "style="width:340px;height:612px;float:left;padding-right:25px" />';
-		echo '<article id="main_content">Here is some content.</article>';
+		echo '<article id="main_content">'.$desc.'</article>';
 	}
 echo '</section>';
 echo '<input type="submit" />';
 echo '</form>';
 echo '</div>';
+$query->close();
 ?>
 </body>
 </html>
