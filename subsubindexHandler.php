@@ -36,22 +36,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$query = $con2->prepare("SET COLLATION_CONNECTION='utf8_general_ci'");
 	$query->execute();
 	$query->close();
-	$content = '';
 	foreach ($_POST AS $key=>$value) 
 	{
 		$dom = new DOMDocument();
 		@$dom->loadHTML($value);
 		foreach($dom->getElementsByTagName('article') as $article) 
 		{
-			if($article->hasAttribute('id') && $article->getAttribute('id') == 'main_content')
-			{
+			#if($article->hasAttribute('id') && $article->getAttribute('id') == 'main_content')
+			#{
 				$children = $article->childNodes;
 				foreach ($children as $child) 
 				{ 
-					$content = htmlspecialchars(stripslashes(trim($child->c14n())));
-					echo $content;
+					$content .= htmlspecialchars(stripslashes($child->c14n()));
+					#echo $content;
 				}
-			}
+			#}
 		}
 	}
 	$sql = "UPDATE sub_orc_images SET description = '".$content."' WHERE name = '".$fruitName."'";

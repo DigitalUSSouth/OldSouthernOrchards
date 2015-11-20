@@ -1,5 +1,5 @@
 <?php
-#define('EMBEDDED',true);
+define('EMBEDDED',true);
 define('OSO_DB', true);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,24 +11,26 @@ define('OSO_DB', true);
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-tinymce.init({
-	selector: "section",
-    plugins:  ["advlist autolink autoresize lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste imagetools"
-    ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-});
-</script>
 </head>
 <body>
 <?php
 header("Content-type: text/html; charset=utf-8");
  echo '<div id="container">';
- #require('navBar.php');
+ require('navBar.php');
  require('db_info.php');
  $fruitName = $_GET['name'];
+if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
+{
+	echo '<script type="text/javascript">
+	tinymce.init({
+	selector: "section",
+    plugins:  ["advlist autolink autoresize lists link image charmap print hr preview anchor pagebreak",
+        "searchreplace wordcount visualchars visualblocks code fullscreen",
+        "insertdatetime nonbreaking media table contextmenu paste textcolor colorpicker textpattern imagetools"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});</script>';
+}
 //connect to the database
 $host = "localhost";
 $username = getUserName();
@@ -69,19 +71,19 @@ if (isset($_GET['name']))
 $query->execute();
 $query->store_result();
 $query->bind_result($fileName, $desc);
-if((!isset($desc)) || ctype_space($desc))
-{
-	$desc = 'No content currently in database';
-}
 echo '<form method="post" action="subsubindexHandler.php?name='.$fruitName.'">';
+#echo '<form method="post" action="test.php">';
 echo '<section>';
 while ($query->fetch())
 	{
-		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" "style="width:340px;height:612px;float:left;padding-right:25px" />';
-		echo '<article id="main_content">'.$desc.'</article>';
+		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;float:left;padding-right:25px" />';
+		echo '<article id="main_content">'.htmlspecialchars_decode($desc).'</article>';
 	}
 echo '</section>';
-echo '<input type="submit" />';
+if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
+{
+	echo '<input type="submit" />';
+}
 echo '</form>';
 echo '</div>';
 $query->close();
