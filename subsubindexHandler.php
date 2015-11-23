@@ -36,27 +36,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$query = $con2->prepare("SET COLLATION_CONNECTION='utf8_general_ci'");
 	$query->execute();
 	$query->close();
-	foreach ($_POST AS $key=>$value) 
+	foreach($_POST as $x)
+	{
+		$content .= htmlspecialchars(stripslashes($x));
+	}
+	/*foreach ($_POST AS $key=>$value) 
 	{
 		$dom = new DOMDocument();
 		@$dom->loadHTML($value);
-		foreach($dom->getElementsByTagName('article') as $article) 
+		foreach($dom->getElementsByTagName('*') as $tag)
 		{
-			#if($article->hasAttribute('id') && $article->getAttribute('id') == 'main_content')
-			#{
-				$children = $article->childNodes;
-				foreach ($children as $child) 
-				{ 
-					$content .= htmlspecialchars(stripslashes($child->c14n()));
-					#echo $content;
-				}
-			#}
+			$tagName = strtolower(trim($tag->tagName));
+			if($tagName == "img" || $tagName == "body" || $tagName == "head")
+				continue;
+			if($article->hasAttribute('id') && $article->getAttribute('id') == 'main_content')
+			{
+			$children = $tag->childNodes;
+			foreach ($children as $child) 
+			{ 
+				$content .= htmlspecialchars(stripslashes($child->c14n()));
+				#echo $content;
+			}
+			}
 		}
-	}
+	}*/
 	$sql = "UPDATE sub_orc_images SET description = '".$content."' WHERE name = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 
 	{
 		echo "Record updated successfully";
+		#echo '<a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name="'.$fruitName.'>Return to previous page</a>';
 	} 
 	else 
 	{

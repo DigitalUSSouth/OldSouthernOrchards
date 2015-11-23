@@ -23,12 +23,13 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<script type="text/javascript">
 	tinymce.init({
+	fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 24pt 36pt",
 	selector: "section",
     plugins:  ["advlist autolink autoresize lists link image charmap print hr preview anchor pagebreak",
         "searchreplace wordcount visualchars visualblocks code fullscreen",
         "insertdatetime nonbreaking media table contextmenu paste textcolor colorpicker textpattern imagetools"
     ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 });</script>';
 }
 //connect to the database
@@ -75,10 +76,11 @@ echo '<form method="post" action="subsubindexHandler.php?name='.$fruitName.'">';
 #echo '<form method="post" action="test.php">';
 echo '<section>';
 while ($query->fetch())
-	{
+{
+	if(strstr($desc, 'img')===FALSE)
 		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;float:left;padding-right:25px" />';
-		echo '<article id="main_content">'.htmlspecialchars_decode($desc).'</article>';
-	}
+	echo htmlspecialchars_decode($desc);
+}
 echo '</section>';
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
