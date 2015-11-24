@@ -78,7 +78,7 @@ echo '<section>';
 while ($query->fetch())
 {
 	if(strstr($desc, 'img')===FALSE)
-		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;float:left;padding-right:25px" />';
+		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;padding-right:25px;display:inline" />';
 	echo htmlspecialchars_decode($desc);
 }
 echo '</section>';

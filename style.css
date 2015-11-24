@@ -74,3 +74,19 @@ a.nav:hover {
         background-color: #f5f5b5;
         border: 1px solid #deca7e;
 }
+
+.withToolTip 
+{
+  border-bottom: 1px dotted;
+  position: relative;
+}
+
+.withToolTip .title 
+{
+  position: absolute;
+  top: 20px;
+  background: silver;
+  padding: 4px;
+  left: 0;
+  white-space: nowrap;
+}

@@ -21,6 +21,7 @@ else
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/jquery.qtip.min.js"></script>
+</script>
 </head>
 <body>
 <?php
@@ -84,7 +85,7 @@ while ($query->fetch())
 			echo '</td><tr>';
 		echo '<td><a href="subsubindex.php?name='.$name.'" data-toggle="tooltip" title="'.$name.'">
 				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" 
-				onmouseover="$(\'[title]\').qtip();"
+				onmouseover="$(\'[title]\').qtip();" ontouchstart="$(\'[title]\').qtip();" onfocus="$(\'[title]\').qtip();"
 				style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
 			</a></td>';
 		$rowcount++;
