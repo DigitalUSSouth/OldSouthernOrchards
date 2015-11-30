@@ -10,3 +10,8 @@ function calcHeight()
 	var h = offset + "px";	// to convert offset to pixels 
 	td.style.height = h;	// assign the height
 }
+
+funct test()
+{
+	try{alert("hi"");}catch(e){alert(e);}
+}
