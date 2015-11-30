@@ -11,7 +11,8 @@ function calcHeight()
 	td.style.height = h;	// assign the height
 }
 
-funct test()
+function test(name)
 {
-	try{alert("hi"");}catch(e){alert(e);}
+	alert(name);
+	location.replace("http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name=" + name);
 }

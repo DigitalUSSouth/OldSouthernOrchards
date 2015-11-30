@@ -88,13 +88,12 @@ echo '<div style="line-height: 0; padding-bottom: 15px; margin-bottom: 15px;"><h
 $rowcount = 0;
 echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
 while ($query->fetch())
-	{
+	{#"subsubindex.php?name='.$name.'"
 		if($rowcount % 5 == 0 && $rowcount != 0)
 			echo '</td><tr>';
-		echo '<td><a href="subsubindex.php?name='.$name.'" data-toggle="tooltip" title="'.$name.'">
-				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" 
+		echo '<td><a href="javascript:test(\''.$name.'\')" data-toggle="tooltip" title="'.$name.'">
+				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" alt="'.$name.'"
 				style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
-				<div style="display: none">'.$name.'</div>
 			</a></td>';
 		$rowcount++;
 	}
