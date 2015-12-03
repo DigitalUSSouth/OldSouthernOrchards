@@ -1,5 +1,4 @@
 // JavaScript functions to be used on OldSouthernOrchards web site
-
 function calcHeight()
 {
 	var td = document.getElementById("spacer");	// get element to be displayed down to the bottom of the window
@@ -10,9 +9,31 @@ function calcHeight()
 	var h = offset + "px";	// to convert offset to pixels 
 	td.style.height = h;	// assign the height
 }
-
 function test(name)
 {
 	alert(name);
-	location.replace("http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name=" + name);
+}
+function findTop(obj)
+{
+	var top = 0;
+	if(obj.offsetParent)
+	{
+		do
+		{
+			top += obj.offsetTop;
+		} while (obj = obj.offsetParent);
+	}
+	return top;
+}
+function findLeft(obj)
+{
+	var left = obj.offsetLeft;
+	if(obj.offsetParent)
+	{
+		do
+		{
+			left += obj.offsetLeft;
+		} while (obj = obj.offsetParent);
+	}
+	return left;
 }

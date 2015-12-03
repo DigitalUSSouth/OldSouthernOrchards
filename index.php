@@ -9,6 +9,7 @@ require('validateUser.php');
 <head>
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
@@ -20,7 +21,7 @@ else
 }
 ?>
 <script type="text/javascript" src="scripts/OSO.js"></script>
-<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+<!--<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>-->
 </script>
 </head>
 <body>

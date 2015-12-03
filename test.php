@@ -1,28 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Old Southern Orchards</title>
+<script type="text/javascript" src="scripts/OSO.js"></script>
+</head>
+<body>
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-	foreach($_POST as $x)
-	{
-		echo htmlspecialchars(stripslashes($x));
-		/*$dom = new DOMDocument();
-		@$dom->loadHTML($value);
-		foreach($dom->getElementsByTagName('*') as $tag) 
-		{
-			$tagName = strtolower(trim($tag->tagName));
-			if($tagName == "img" || $tagName == "body" || $tagName == "head" || $tagName == "html")
-				continue;
-			echo $tag->textContent;
-			$children = $tag->childNodes;
-			foreach ($children as $child) 
-			{
-				$subTagName = strtolower(trim($child->tagName));
-				if($subTagName == "img" || $subTagName == "body" || $subTagName == "head" || $subTagName == "html")
-					continue;
-				$content = htmlspecialchars(stripslashes($child->c14n()));
-				echo "*****";
-				echo $content;			
-			}
-		}*/
-	}
-}
+echo '<a href="index.php" onclick="test(\'header2\');">click</a>';
 ?>
+<!--<img src="images/header.png" onclick="test('header');" />-->
+</body>
+</html>

@@ -7,6 +7,7 @@ define('OSO_DB', true);
 <head>
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
@@ -21,14 +22,6 @@ else
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/jquery.qtip.min.js"></script>
-<script type="text/javascript">
-/*$('.hasTooltip').each(function() { // Notice the .each() loop, discussed below
-    $(this).qtip({
-        content: {
-            text: $(this).next('div') // Use the "div" element next to this for the content
-        }
-    });
-});*/
 </script>
 </head>
 <body>
@@ -88,15 +81,17 @@ echo '<div style="line-height: 0; padding-bottom: 15px; margin-bottom: 15px;"><h
 $rowcount = 0;
 echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
 while ($query->fetch())
-	{#"subsubindex.php?name='.$name.'"
-		if($rowcount % 5 == 0 && $rowcount != 0)
-			echo '</td><tr>';
-		echo '<td><a href="javascript:test(\''.$name.'\')" data-toggle="tooltip" title="'.$name.'">
-				<img src="images/subimages/'.$fileName.'" class="hasTooltip" id="'.$name.'" alt="'.$name.'"
-				style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
-			</a></td>';
-		$rowcount++;
-	}
+{
+	if($rowcount % 5 == 0 && $rowcount != 0)
+		echo '</td><tr>';
+	echo '<td class="hasToolTip">
+			<span class="tooltip"><p><b>Complex HTML</b> for your tooltip <i>here</i>!</p></span>
+			<a href="subsubindex.php?name='.$name.'">
+			<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'"
+			style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
+		</a></td>';
+	$rowcount++;
+}
 echo '</tr></table></div>';
 ?>
 </body>

@@ -66,29 +66,48 @@ a.nav:hover {
 	text-decoration: underline;
 }
 
-.hasToolTip:active .tooltip {
-    display:block;
-	width: 100px;
-	height: 100px;
-	overflow: visible;
-}
-
-.hasToolTip:hover .tooltip {
-    display:block;
-	width: 100px;
-	height: 100px;
-	overflow: visible;
-}
-
-.tooltip {
-    display: none;
-    color: black;
-	background-color: white;
-    margin-left: 28px; /* moves the tooltip to the right */
-    margin-top: 15px; /* moves it down */
-	width: 0px;
-	height: 0px;
-	overflow: hidden;
+/* don't know if this below will work */
+#tooltip
+{
+    text-align: center;
+    color: #fff;
+    background: #111;
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
+    padding: 15px;
+}
+ 
+#tooltip:after /* triangle decoration */
+{
+width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-top: 10px solid #111;
+content: '';
+position: absolute;
+left: 50%;
+bottom: -10px;
+margin-left: -10px;
+}
+
+#tooltip.top:after
+{
+	border-top-color: transparent;
+	border-bottom: 10px solid #111;
+	top: -20px;
+	bottom: auto;
+}
+
+#tooltip.left:after
+{
+	left: 10px;
+	margin: 0;
+}
+
+#tooltip.right:after
+{
+	right: 10px;
+	left: auto;
+	margin: 0;
 }
