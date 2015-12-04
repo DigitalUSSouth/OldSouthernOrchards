@@ -69,12 +69,12 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, name FROM sub_orc_images WHERE fruitName = ? ORDER BY filename");
+	$query = $con2->prepare("SELECT filename, name, thumbname FROM sub_orc_images WHERE fruitName = ? ORDER BY filename");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fileName, $name);
+$query->bind_result($fileName, $name, $thumbName);
 /*echo '<div id="content">';
 echo '<div style="padding-top: 20px; padding-bottom: 0;"><a href="index.php">&lt; Back to Home</a></div>';
 echo '<div style="line-height: 0; padding-bottom: 15px; margin-bottom: 15px;"><h1>'.$_GET['fruitName'].'</h1></div>';*/
@@ -84,12 +84,14 @@ while ($query->fetch())
 {
 	if($rowcount % 5 == 0 && $rowcount != 0)
 		echo '</td><tr>';
-	echo '<td class="hasToolTip">
+		echo '<td class="hasToolTip">
 			<span class="tooltip"><p><b>Complex HTML</b> for your tooltip <i>here</i>!</p></span>
-			<a href="subsubindex.php?name='.$name.'">
-			<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'"
-			style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />
-		</a></td>';
+			<a href="subsubindex.php?name='.$name.'">';
+		if($fruitName=="Cherry")	
+			echo '<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />';
+		else
+			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
+		echo '</a></td>';
 	$rowcount++;
 }
 echo '</tr></table></div>';

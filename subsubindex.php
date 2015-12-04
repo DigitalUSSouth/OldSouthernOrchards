@@ -79,7 +79,13 @@ echo '<section>';
 while ($query->fetch())
 {
 	if(strstr($desc, 'img')===FALSE)
-		echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;padding-right:25px;display:inline" />';
+	{
+		$fruitType = trim(strrchr(trim($fruitName), ' '));
+		if($fruitType=='Cherry')
+			echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;padding-right:25px;display:inline" />';
+		else
+			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;padding-right:25px;display:inline" />';
+	}
 	echo htmlspecialchars_decode($desc);
 }
 echo '</section>';
