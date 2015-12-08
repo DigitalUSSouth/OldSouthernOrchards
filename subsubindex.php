@@ -80,7 +80,13 @@ while ($query->fetch())
 {
 	if(strstr($desc, 'img')===FALSE)
 	{
-		$fruitType = trim(strrchr(trim($fruitName), ' '));
+		$pieces = explode(" ", $fruitName);
+		//$fruitType = trim(strrchr(trim($fruitName), ' '));
+		$fruitType = array_pop($pieces);
+		if(is_numeric($fruitType))
+		{
+			$fruitType = array_pop($pieces);
+		}
 		if($fruitType=='Cherry')
 			echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" style="width:340px;height:612px;padding-right:25px;display:inline" />';
 		else

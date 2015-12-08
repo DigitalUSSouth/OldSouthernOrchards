@@ -69,7 +69,7 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, name, thumbname FROM sub_orc_images WHERE fruitName = ? ORDER BY filename");
+	$query = $con2->prepare("SELECT filename, name, thumbname FROM sub_orc_images WHERE fruitName = ? ORDER BY name");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
