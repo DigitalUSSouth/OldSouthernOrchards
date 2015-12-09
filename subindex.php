@@ -2,26 +2,108 @@
 define('EMBEDDED',true);
 define('OSO_DB', true);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
-if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
-      echo '<link rel="stylesheet" href="style_firefox.css" type="text/css">';
+	echo '<link rel="stylesheet" href="style_mobile.css" type="text/css">';
+	$isMobile = 1;
+}
+else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
+{
+     echo '<link rel="stylesheet" href="style_firefox.css" type="text/css">';
+	 $isMobile = 0;
 }
 else
 {
-	echo '<link rel="stylesheet" href="style.css" type="text/css">';	
+	echo '<link rel="stylesheet" href="style.css" type="text/css">';
+	$isMobile = 0;	
 }
 ?>
-<link rel="stylesheet" href="jquery.qtip.min.css" type="text/css">
-<script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript">
+$( function()
+{
+    var targets = $( '[rel~=tooltip]' ),
+        target  = false,
+        tooltip = false,
+        title   = false;
+ 
+    targets.bind( 'mouseenter', function()
+    {
+        target  = $( this );
+        tip     = target.attr( 'title' );
+        tooltip = $( '<div id="tooltip"></div>' );
+ 
+        if( !tip || tip == '' )
+            return false;
+ 
+        target.removeAttr( 'title' );
+        tooltip.css( 'opacity', 0 )
+               .html( tip )
+               .appendTo( 'body' );
+ 
+        var init_tooltip = function()
+        {
+            if( $( window ).width() < tooltip.outerWidth() * 1.5 )
+                tooltip.css( 'max-width', $( window ).width() / 2 );
+            else
+                tooltip.css( 'max-width', 340 );
+ 
+            var pos_left = target.offset().left + ( target.outerWidth() / 2 ) - ( tooltip.outerWidth() / 2 ),
+                pos_top  = target.offset().top - tooltip.outerHeight() - 20;
+ 
+            if( pos_left < 0 )
+            {
+                pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                tooltip.addClass( 'left' );
+            }
+            else
+                tooltip.removeClass( 'left' );
+ 
+            if( pos_left + tooltip.outerWidth() > $( window ).width() )
+            {
+                pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() / 2 + 20;
+                tooltip.addClass( 'right' );
+            }
+            else
+                tooltip.removeClass( 'right' );
+ 
+            if( pos_top < 0 )
+            {
+                var pos_top  = target.offset().top + target.outerHeight();
+                tooltip.addClass( 'top' );
+            }
+            else
+                tooltip.removeClass( 'top' );
+ 
+            tooltip.css( { left: pos_left, top: pos_top } )
+                   .animate( { top: '+=10', opacity: 1 }, 50 );
+        };
+ 
+        init_tooltip();
+        $( window ).resize( init_tooltip );
+ 
+        var remove_tooltip = function()
+        {
+            tooltip.animate( { top: '-=10', opacity: 0 }, 50, function()
+            {
+                $( this ).remove();
+            });
+ 
+            target.attr( 'title', tip );
+        };
+ 
+        target.bind( 'mouseleave', remove_tooltip );
+        tooltip.bind( 'click', remove_tooltip );
+    });
+});
 </script>
 </head>
 <body>
@@ -69,25 +151,29 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, name, thumbname FROM sub_orc_images WHERE fruitName = ? ORDER BY name");
+	$query = $con2->prepare("SELECT filename, name, thumbname, display FROM sub_orc_images WHERE fruitName = ? ORDER BY name");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fileName, $name, $thumbName);
-/*echo '<div id="content">';
-echo '<div style="padding-top: 20px; padding-bottom: 0;"><a href="index.php">&lt; Back to Home</a></div>';
-echo '<div style="line-height: 0; padding-bottom: 15px; margin-bottom: 15px;"><h1>'.$_GET['fruitName'].'</h1></div>';*/
+$query->bind_result($fileName, $name, $thumbName, $disp);
 $rowcount = 0;
 echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
 while ($query->fetch())
 {
+	if($disp==0)
+		continue;
 	if($rowcount % 5 == 0 && $rowcount != 0)
 		echo '</td><tr>';
-		echo '<td class="hasToolTip">
-			<span class="tooltip"><p><b>Complex HTML</b> for your tooltip <i>here</i>!</p></span>
-			<a href="subsubindex.php?name='.$name.'">';
-		if($fruitName=="Cherry")	
+		echo '<td class="hasToolTip">';
+		if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
+			echo '<span class="tooltip"><p><strong>Complex HTML and text</strong> for your tooltip <em>here!</em></p></span>';
+		echo '<a href="subsubindex.php?name='.$name.'"';
+		if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
+			echo ' title="Mobile Tooltip Test" rel="tooltip" >';
+		else
+			echo '>';
+		if($fruitName=="Cherry")	# eventually need to get rid of Cherry test
 			echo '<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />';
 		else
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
