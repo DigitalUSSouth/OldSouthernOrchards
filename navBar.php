@@ -16,7 +16,7 @@ echo '   <img src="images/header.png" style="padding-left: 15px;" />
 
 if ((isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1') && (isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1'))
 {
-   echo '<a class="nav" href="updateOrchard.php">UPDATE ORCHARD</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+   #echo '<a class="nav" href="updateOrchard.php">UPDATE ORCHARD</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
    
 }
 if (!isset($_SESSION['ISLOGGEDIN']) || $_SESSION['ISLOGGEDIN']=='0')

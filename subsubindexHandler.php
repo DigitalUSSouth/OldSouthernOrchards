@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	} 
 	else 
 	{
-		echo "Error updating record: " . $conn->error;
+		echo "Error updating record: " . $con2->error . '\n';
+		echo $sql;
 	}
 	$query->close();
 }

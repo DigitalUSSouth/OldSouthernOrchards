@@ -47,6 +47,21 @@ h2
 	width: 440px;
 }
 
+#fruitMenu
+{
+	width:125px;
+	font-size:10pt;
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+#fruitMenu a
+{
+	text-decoration:none;
+	color:#a00c0a;
+}
+
 table
 {
 	border-spacing: 0px;
@@ -124,4 +139,10 @@ a.nav:hover
 	right: 10px;
 	left: auto;
 	margin: 0;
+}
+
+.centered
+{
+	margin-left:auto; 
+	margin-right:auto;
 }

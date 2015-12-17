@@ -22,12 +22,12 @@ else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 else
 {
 	echo '<link rel="stylesheet" href="style.css" type="text/css">';
-	$isMobile = 0;	
+	$isMobile = 0;
 }
 ?>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/OSO.js"></script>
-<script type="text/javascript">
+<script type="text/javascript"> //for mobile tooltops
 $( function()
 {
     var targets = $( '[rel~=tooltip]' ),
