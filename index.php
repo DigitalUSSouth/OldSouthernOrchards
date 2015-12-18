@@ -13,15 +13,15 @@ require('validateUser.php');
 <?php
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
-      echo '<link rel="stylesheet" href="style_firefox.css" type="text/css">';
+      echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 }
 else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
-	echo '<link rel="stylesheet" href="style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 }
 else
 {
-	echo '<link rel="stylesheet" href="style.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
 }
 ?>
 <script type="text/javascript" src="scripts/OSO.js"></script>

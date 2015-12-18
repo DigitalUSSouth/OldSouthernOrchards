@@ -11,15 +11,15 @@ define('OSO_DB', true);
 <?php
 if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
-	echo '<link rel="stylesheet" href="style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 }
 else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
-     echo '<link rel="stylesheet" href="style_firefox.css" type="text/css">';
+     echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 }
 else
 {
-	echo '<link rel="stylesheet" href="style.css" type="text/css">';	
+	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';	
 }
 ?>
 <script type="text/javascript" src="scripts/OSO.js"></script>
@@ -38,16 +38,28 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 	echo '<script type="text/javascript">
 	tinymce.init({
 	fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 24pt 36pt",
-	font_formats: "Andale Mono=andale mono,times;"+
+	font_formats: "Agency FB=agency fb,sans-serif;"+
+				"Andale Mono=andale mono,times;"+
                 "Arial=arial,helvetica,sans-serif;"+
                 "Arial Black=arial black,avant garde;"+
+				"Arial Narrow=arial narrow,sans-serif;"+
+				"Bodoni MT=bodoni mt,times new roman,sans-serif;"+
                 "Book Antiqua=book antiqua,palatino;"+
-				"Cambria=cambria;"+
+				"Calibri=calibri,sans-serif;"+
+				"Cambria=cambria,serif;"+
+				"Century Gothic=century gothic,sans-serif;"+
                 "Comic Sans MS=comic sans ms,sans-serif;"+
+				"Consolas=consolas,monaco,monospace;"+
+				"Copperplate=copperplate gothic light,sans-serif;"+
                 "Courier New=courier new,courier;"+
+				"Garamond=garamond,serif;"+
                 "Georgia=georgia,palatino;"+
                 "Helvetica=helvetica;"+
                 "Impact=impact,chicago;"+
+				"Lucida Console=lucida console,monaco,monospace;"+
+				"Lucida Sans Unicode=lucida sans unicode,lucida grande,sans-serif;"+
+				"Palatino Linotype=palatino linotype,book antiqua,palatino,serif;"+
+				"Rockwell=rockwell,times new roman,serif;"+
                 "Symbol=symbol;"+
                 "Tahoma=tahoma,arial,helvetica,sans-serif;"+
                 "Terminal=terminal,monaco;"+
@@ -117,9 +129,9 @@ while ($query->fetch())
 		{
 			$fruitType = array_pop($pieces);
 		}
-		if($fruitType=='Cherry')	# need to eventually delete this test
+		/*if($fruitType=='Cherry')	# need to eventually delete this test
 			echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
-		else
+		else*/
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
 	}
 	echo htmlspecialchars_decode($desc);

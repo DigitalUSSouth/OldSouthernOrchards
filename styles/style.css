@@ -1,0 +1,161 @@
+body 
+{
+	/*background-image: url(images/bgtile.jpg);
+	background-repeat: repeat-x;*/
+	background-color: #a09b90;
+	margin: 20px 0 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#content 
+{
+	/*background-image: url(images/sidebarbackground.jpg);
+	background-repeat: repeat-y;*/
+	background-color: #fff;
+	border-bottom: 2px #fff solid;
+	border-left: 0px;
+	padding-left: 50px;
+}
+
+#container 
+{
+	margin: 0 auto;
+	width: 1004px;
+	height: 100%;
+}
+
+#contentcontainer 
+{
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+}
+
+h2 
+{
+	font-size: 18px;
+	font-weight: 200;
+	color: #a00c0a;
+}
+
+.centered
+{
+	margin-left:auto; 
+	margin-right:auto;
+}
+
+#orchardTable 
+{
+	margin-left:0px; 
+	margin-right:0px; 
+	background-color: white;
+	padding: 3px;
+	width: 440px;
+}
+
+#fruitMenu
+{
+	width:125px;
+	font-size:10pt;
+	margin:0;
+	border:0;
+	padding:0;
+}
+#fruitMenu a
+{
+	text-decoration:none;
+	color:#a00c0a;
+}
+
+table
+{
+	border-spacing: 0px;
+	padding: 0px;
+	background-color: white;
+    border-collapse: separate;
+}
+
+/* NAVIGATION CSS */
+#navigation 
+{
+	background-color: #9da06a;
+	border-top: 2px #fff solid;
+	border-bottom: 2px #fff solid;
+	padding: 5px 15px 5px 15px;
+	clear: both;
+}
+
+a.nav 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #fff;
+	text-decoration: none;
+}
+
+a.nav:hover 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #993300;
+	text-decoration: underline;
+}
+
+.hasToolTip:active .tooltip 
+{
+    display:block;
+	width: 100px;
+	height: 100px;
+	overflow: visible;
+}
+
+.hasToolTip:hover .tooltip 
+{
+    display:block;
+	width: 100px;
+	height: 125px;
+	overflow: visible;
+}
+
+.tooltip 
+{
+    display: none;
+    color: black;
+	background-color: yellow;
+	border: 1px black solid;
+    margin-left: 0px; /* moves the tooltip to the right */
+    margin-top: 0px; /* moves it down */
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+}
+
+.tooltip:after /* triangle decoration */
+{
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #111;
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -10px;
+	margin-left: -10px;
+}
+
+.tooltip strong
+{
+	color: red;
+}
+
+.tooltip em
+{
+	color: green;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-family: "Lucida Console", monospace;
+	font-size: 24px;
+}

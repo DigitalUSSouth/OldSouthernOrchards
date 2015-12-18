@@ -11,17 +11,17 @@ define('OSO_DB', true);
 <?php
 if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
-	echo '<link rel="stylesheet" href="style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 	$isMobile = 1;
 }
 else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
-     echo '<link rel="stylesheet" href="style_firefox.css" type="text/css">';
+     echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 	 $isMobile = 0;
 }
 else
 {
-	echo '<link rel="stylesheet" href="style.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
 	$isMobile = 0;
 }
 ?>
@@ -173,9 +173,9 @@ while ($query->fetch())
 			echo ' title="Mobile Tooltip Test" rel="tooltip" >';
 		else
 			echo '>';
-		if($fruitName=="Cherry")	# eventually need to get rid of Cherry test
+		/*if($fruitName=="Cherry")	# eventually need to get rid of Cherry test
 			echo '<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />';
-		else
+		else*/
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
 		echo '</a></td>';
 	$rowcount++;
