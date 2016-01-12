@@ -39,26 +39,26 @@ else
  echo    '<tr>
 				<td rowspan="6" style="vertical-align: top;">
 					<nav id="fruitMenu">
-					<a href="blank.htm" class="recipe-links" title="Apple Recipes">Apple Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Apricot Recipes">Apricot Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Cherry Recipes">Cherry Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Crab Apple Recipes">Crab Apple Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Grape Recipes">Grape Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Grapefruit Recipes">Grapefruit Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Kumquat Recipes">Kumquat Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Lemon Recipes">Lemon Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Lime Recipes">Lime Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Loquat Recipes">Loquat Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Mango Recipes">Mango Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Mulberry Recipes">Mulberry Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Orange Recipes">Orange Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Pawpaw Recipes">Pawpaw Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Peach Recipes">Peach Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Pear Recipes">Pear Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Persimmon Recipes">Persimmon Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Plum Recipes">Plum Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Quince Recipes">Quince Recipes</a><br />
-					<a href="blank.htm" class="recipe-links" title="Tangerine Recipes">Tangerine Recipes</a><br />
+					<a href="recipe.php?fruitName=Apple" class="recipe-links" title="Apple Recipes">Apple Recipes</a><br />
+					<a href="recipe.php?fruitName=Apricot" class="recipe-links" title="Apricot Recipes">Apricot Recipes</a><br />
+					<a href="recipe.php?fruitName=Cherry" class="recipe-links" title="Cherry Recipes">Cherry Recipes</a><br />
+					<a href="recipe.php?fruitName=Crab Apple" class="recipe-links" title="Crab Apple Recipes">Crab Apple Recipes</a><br />
+					<a href="recipe.php?fruitName=Grape" class="recipe-links" title="Grape Recipes">Grape Recipes</a><br />
+					<a href="recipe.php?fruitName=Grapefruit" class="recipe-links" title="Grapefruit Recipes">Grapefruit Recipes</a><br />
+					<a href="recipe.php?fruitName=Kumquat" class="recipe-links" title="Kumquat Recipes">Kumquat Recipes</a><br />
+					<a href="recipe.php?fruitName=Lemon" class="recipe-links" title="Lemon Recipes">Lemon Recipes</a><br />
+					<a href="recipe.php?fruitName=Lime" class="recipe-links" title="Lime Recipes">Lime Recipes</a><br />
+					<a href="recipe.php?fruitName=Loquat" class="recipe-links" title="Loquat Recipes">Loquat Recipes</a><br />
+					<a href="recipe.php?fruitName=Mango" class="recipe-links" title="Mango Recipes">Mango Recipes</a><br />
+					<a href="recipe.php?fruitName=Mulberry" class="recipe-links" title="Mulberry Recipes">Mulberry Recipes</a><br />
+					<a href="recipe.php?fruitName=Orange" class="recipe-links" title="Orange Recipes">Orange Recipes</a><br />
+					<a href="recipe.php?fruitName=Pawpaw" class="recipe-links" title="Pawpaw Recipes">Pawpaw Recipes</a><br />
+					<a href="recipe.php?fruitName=Peach" class="recipe-links" title="Peach Recipes">Peach Recipes</a><br />
+					<a href="recipe.php?fruitName=Pear" class="recipe-links" title="Pear Recipes">Pear Recipes</a><br />
+					<a href="recipe.php?fruitName=Persimmon" class="recipe-links" title="Persimmon Recipes">Persimmon Recipes</a><br />
+					<a href="recipe.php?fruitName=Plum" class="recipe-links" title="Plum Recipes">Plum Recipes</a><br />
+					<a href="recipe.php?fruitName=Quince" class="recipe-links" title="Quince Recipes">Quince Recipes</a><br />
+					<a href="recipe.php?fruitName=Tangerine" class="recipe-links" title="Tangerine Recipes">Tangerine Recipes</a><br />
 					</nav>
 				</td>
 				<td class="bodyText" id="fruitTableStart">
