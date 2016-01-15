@@ -33,6 +33,7 @@ header("Content-type: text/html; charset=utf-8");
  require('navBar.php');
  require('db_info.php');
  $fruitName = $_GET['name'];
+ // tinymce editor
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<script type="text/javascript">
@@ -76,6 +77,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
     toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 });</script>';
 }
+// end tinymce editor
 //connect to the database
 $host = "localhost";
 $username = getUserName();
@@ -129,9 +131,6 @@ while ($query->fetch())
 		{
 			$fruitType = array_pop($pieces);
 		}
-		/*if($fruitType=='Cherry')	# need to eventually delete this test
-			echo '<img src="images/subimages/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
-		else*/
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
 	}
 	echo htmlspecialchars_decode($desc);

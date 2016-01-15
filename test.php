@@ -1,6 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
 <!--This file is the equivalent of scratch paper-->
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+	foreach($_POST as $x)
+	{
+		echo htmlspecialchars(stripslashes($x));
+	}
+}
+?>
+<!--<!DOCTYPE html>
+<html lang="en">
 <head>
 <title>Old Southern Orchards</title>
 <style>
@@ -139,4 +148,4 @@ $( function()
 	</tr>
 </table>
 </body>
-</html>
+</html>-->
