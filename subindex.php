@@ -151,12 +151,12 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, name, thumbname, display FROM sub_orc_images WHERE fruitName = ? ORDER BY name");
+	$query = $con2->prepare("SELECT filename, name, thumbname, display, tooltip FROM sub_orc_data WHERE fruitName = ? ORDER BY name");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fileName, $name, $thumbName, $disp);
+$query->bind_result($fileName, $name, $thumbName, $disp, $ttip);
 $rowcount = 0;
 echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
 while ($query->fetch())
@@ -167,20 +167,18 @@ while ($query->fetch())
 		echo '</td><tr>';
 		echo '<td class="hasToolTip">';
 		if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
-			echo '<span class="tooltip"><p><strong>Complex HTML and text</strong> for your tooltip <em>here!</em></p></span>';
+			echo '<span class="tooltip">'.$ttip.'</span>';
 		echo '<a href="subsubindex.php?name='.$name.'"';
 		if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
 			echo ' title="Mobile Tooltip Test" rel="tooltip" >';
 		else
 			echo '>';
-		/*if($fruitName=="Cherry")	# eventually need to get rid of Cherry test
-			echo '<img src="images/subimages/'.$fileName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;width:170px;height:306px;" />';
-		else*/
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
 		echo '</a></td>';
 	$rowcount++;
 }
 echo '</tr></table></div>';
+$query->close();
 ?>
 </body>
 </html>

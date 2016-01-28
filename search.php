@@ -30,11 +30,6 @@ else
 echo '<div id="container">';
 require('navBar.php');
 echo '<div id="content"><br />';
-if (isset($_GET['Item']))
-{
-}
-else
-{
 	echo '<h2>Old Southern Orchards</h2>
 			<table>
 				<tr>
@@ -43,40 +38,33 @@ else
 	echo 			'</td>
 				</tr>
 			</table>';
-}
-if (isset($_GET['Item']))
-{
-}
-else
-{
-	echo '<form action="search.php" method="get">
-	<table>
+	echo '<form method="get" action="searchHandler.php">';
+	echo '<table>
 		<tr>
-			<td style="width: 100px">
+			<td>
 				Search for: 
 			</td>
-			<td style="width: 350px; height=50px; padding:10px;" colspan="3">
-				<input type="text" name="Item" />
+			<td style="height:75px;">
+				<input type="text" name="searchTerm" />
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;"><input checked type="radio" name="searchType" value="1" />Fruits</td>
+			<td style="text-align:center;"><input type="radio" name="searchType" value="2" />Recipes</td>
+			<td style="text-align:center;"><input type="radio" name="searchType" value="3" />Any</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="height:75px;"><input type="submit" value="Search" />
 			</td>
 		</tr>
 		<tr>
-			<td><input checked type="radio" name="Type" value="2" /> &nbsp;</td>
-			<td><input type="radio" name="Type" value="4" /> &nbsp;</td>
-			<td><input type="radio" name="Type" value="1" /> &nbsp;</td>
-			<td align="left"><input type="radio" name="Type" value="3" />Any</td>
-		</tr>
-		<tr>
-			<td colspan="4"><input type="submit" value="Search" />
-			</td>
-		</tr>
-		<tr>
-			<td id="spacer" style="height: 500px;">
+			<td id="spacer" colspan="3">
 				&nbsp;
 			</td>
 		</tr>
    </table>
    </form>';
-}
 echo '</div></div>';
 ?>
 </body>

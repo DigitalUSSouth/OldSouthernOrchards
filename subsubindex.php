@@ -112,13 +112,13 @@ if (isset($_GET['name']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, description FROM sub_orc_images WHERE name = ?");
+	$query = $con2->prepare("SELECT filename, description FROM sub_orc_data WHERE name = ?");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
 $query->bind_result($fileName, $desc);
-echo '<form method="post" action="subsubindexHandler.php?name='.$fruitName.'">';
+echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
 #echo '<form method="post" action="test.php">';
 echo '<section style="background-color:white;" >';
 while ($query->fetch())

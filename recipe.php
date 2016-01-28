@@ -35,7 +35,7 @@ header("Content-type: text/html; charset=utf-8");
 $fruitName = $_GET['fruitName'];
 
 // tinymce editor
-if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
+if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 {
 	echo '<script type="text/javascript">
 	tinymce.init({
@@ -104,23 +104,22 @@ $query->execute();
 $query->close();
 
 //setup up our query
-$query = $con2->prepare("SELECT origin, description FROM recipes WHERE fruit = ?");
+$query = $con2->prepare("SELECT content FROM recipes WHERE fruit = ?");
 $query->bind_param('s', $fruitName);
 
 $query->execute();
 $query->store_result();
-$query->bind_result($origin, $desc);
+$query->bind_result($content);
 
 #echo '<form method="post" action="test.php">';
-echo '<form method="post" action="updateRecipes.php?name='.$fruitName.'">';
+echo '<form method="post" action="recipeUpdater.php?name='.$fruitName.'">';
 echo '<article id="descrip" style="background-color:white;">';
 while ($query->fetch())
 {
-	echo '<h1 class="origin">'.$origin.'</h1>';
-	echo htmlspecialchars_decode($desc);
+	echo htmlspecialchars_decode($content);
 }
 echo '</article>';
-if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
+if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 {
 	echo '<input type="submit" />';
 }

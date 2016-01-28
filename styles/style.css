@@ -100,7 +100,7 @@ a.nav:hover
 	color: #993300;
 	text-decoration: underline;
 }
-
+/*
 .hasToolTip:active .tooltip 
 {
     display:block;
@@ -108,12 +108,12 @@ a.nav:hover
 	height: 100px;
 	overflow: visible;
 }
-
+*/
 .hasToolTip:hover .tooltip 
 {
     display:block;
-	width: 100px;
-	height: 125px;
+	width: 175px;
+	height: 45px;
 	overflow: visible;
 }
 
@@ -130,6 +130,7 @@ a.nav:hover
 	overflow: hidden;
     position: absolute;
     z-index: 1000;
+	font-size: 12px;
 }
 
 .tooltip:after /* triangle decoration */
@@ -153,9 +154,5 @@ a.nav:hover
 
 .tooltip em
 {
-	color: green;
-	text-transform: uppercase;
-	text-decoration: underline;
-	font-family: "Lucida Console", monospace;
-	font-size: 24px;
+	font-style: oblique;
 }
