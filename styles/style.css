@@ -121,7 +121,7 @@ a.nav:hover
 {
     display: none;
     color: black;
-	background-color: yellow;
+	background-color: white;
 	border: 1px black solid;
     margin-left: 0px; /* moves the tooltip to the right */
     margin-top: 0px; /* moves it down */

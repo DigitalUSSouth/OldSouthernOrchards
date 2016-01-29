@@ -99,8 +99,8 @@ a.nav:hover
 #tooltip
 {
     text-align: center;
-    color: #fff;
-    background: #111;
+    color: #111;
+    background: #fff;
     position: absolute;
     z-index: 100;
     padding: 15px;

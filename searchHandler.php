@@ -45,12 +45,17 @@ $type = $_GET['searchType'];
 	
 	if($type==2)	// search recipes
 	{
+		/*$sql = "SELECT COUNT(*) FROM recipes WHERE content LIKE '%".$term."%'";
+		$query = $con2->prepare($sql);
+		$query->execute();
+		$query->store_result();
+		$query->bind_result($numrows);*/
 		$sql = "SELECT fruit, content FROM recipes WHERE content LIKE '%".$term."%'";
 		$query = $con2->prepare($sql);
-		//$query->bind_param('s', $term);
 		$query->execute();
 		$query->store_result();
 		$query->bind_result($fruit, $content);
+		//echo "Search results ( ".$numrows." ) for '".$term."'";
 		while ($query->fetch())
 		{
 			echo '<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$fruit.'">'.$fruit.' Recipes</a><br>';
@@ -58,6 +63,7 @@ $type = $_GET['searchType'];
 			echo '<br>';
 		}
 	}
+	echo 'Not what you were looking for? <a href="search.php">Search again</a>';
 	$query->close();
 //}
 /*function resizeImage($originalImage,$toWidth,$toHeight){

@@ -26,7 +26,7 @@ else
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/tinymce/tinymce.min.js"></script>
 </head>
-<body>
+<body onLoad="calcHeight();">
 <?php
 header("Content-type: text/html; charset=utf-8");
  echo '<div id="container">';
@@ -120,7 +120,7 @@ $query->store_result();
 $query->bind_result($fileName, $desc);
 echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
 #echo '<form method="post" action="test.php">';
-echo '<section style="background-color:white;" >';
+echo '<section style="background-color:white;" id="spacer">';
 while ($query->fetch())
 {
 	if(strstr($desc, 'img')===FALSE)
