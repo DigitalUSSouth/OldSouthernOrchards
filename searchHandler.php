@@ -17,55 +17,83 @@ else if($isValid==0)
 else
 	$term = $_GET['searchTerm'];
 $type = $_GET['searchType'];
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-//{
-	 require('db_info.php'); 
-	//connect to the database
-	$host = 'localhost'; 
-	$username = getUserName(); 
-	$password = getPassword(); 
-	$database = getDB();
+ require('db_info.php'); 
+//connect to the database
+$host = 'localhost'; 
+$username = getUserName(); 
+$password = getPassword(); 
+$database = getDB();
 
-	$con2 = new mysqli($host, $username, $password, $database);
+$con2 = new mysqli($host, $username, $password, $database);
 
-	if (!$con2)
-		die('Could not connect: ' . mysql_error());
+if (!$con2)
+	die('Could not connect: ' . mysql_error());
 
-	$query = $con2->prepare("SET NAMES 'utf8'");
+$query = $con2->prepare("SET NAMES 'utf8'");
+$query->execute();
+$query->close();
+
+$query = $con2->prepare("SET CHARACTER SET 'utf8'");
+$query->execute();
+$query->close();
+
+$query = $con2->prepare("SET COLLATION_CONNECTION='utf8_general_ci'");
+$query->execute();
+$query->close();
+
+$numresults = 0;	// total number of search terms found
+
+if($type==1)	// search fruits
+{
+	$allresults .= search_fruits();
+}
+else if($type==2)	// search recipes
+{
+	$allresults .= search_recipes();
+}
+else if($type==3)	// search all
+{
+	$allresults .= search_fruits();
+	$allresults .=search_recipes();
+}
+echo "<p>Search Results (".$numresults.") for '".$term."'</p>";
+echo $allresults;
+echo 'Not what you were looking for? <a href="search.php">Search again</a>';
+$query->close();
+
+function search_fruits()
+{
+	$sql = "SELECT name, fruitname, description FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";
+	$query = $GLOBALS['con2']->prepare($sql);
 	$query->execute();
-	$query->close();
-
-	$query = $con2->prepare("SET CHARACTER SET 'utf8'");
-	$query->execute();
-	$query->close();
-
-	$query = $con2->prepare("SET COLLATION_CONNECTION='utf8_general_ci'");
-	$query->execute();
-	$query->close();
-	
-	if($type==2)	// search recipes
+	$query->store_result();
+	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description']);
+	while ($query->fetch())
 	{
-		/*$sql = "SELECT COUNT(*) FROM recipes WHERE content LIKE '%".$term."%'";
-		$query = $con2->prepare($sql);
-		$query->execute();
-		$query->store_result();
-		$query->bind_result($numrows);*/
-		$sql = "SELECT fruit, content FROM recipes WHERE content LIKE '%".$term."%'";
-		$query = $con2->prepare($sql);
-		$query->execute();
-		$query->store_result();
-		$query->bind_result($fruit, $content);
-		//echo "Search results ( ".$numrows." ) for '".$term."'";
-		while ($query->fetch())
-		{
-			echo '<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$fruit.'">'.$fruit.' Recipes</a><br>';
-			echo htmlspecialchars_decode($content);
-			echo '<br>';
-		}
+		$GLOBALS['numresults']++;
+		$results .= '<p style="clear:both">Fruit <a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
+		$results .= htmlspecialchars_decode($GLOBALS['description']);
+		$results .= '</p>';
 	}
-	echo 'Not what you were looking for? <a href="search.php">Search again</a>';
-	$query->close();
-//}
+	return $results;
+}
+
+function search_recipes()
+{
+	$sql = "SELECT fruit, content FROM recipes WHERE content LIKE '%".$GLOBALS['term']."%'";
+	$query = $GLOBALS['con2']->prepare($sql);
+	$query->execute();
+	$query->store_result();
+	$query->bind_result($GLOBALS['fruit'], $GLOBALS['content']);
+	while ($query->fetch())
+	{
+		$GLOBALS['numresults']++;
+		$results .= '<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].' Recipes</a><br>';
+		$results .= htmlspecialchars_decode($GLOBALS['content']);
+		$results .= '<br>';
+	}
+	return $results;
+}
 /*function resizeImage($originalImage,$toWidth,$toHeight){
 
     // Get the original geometry and calculate scales

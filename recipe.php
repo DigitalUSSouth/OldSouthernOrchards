@@ -116,7 +116,7 @@ echo '<form method="post" action="recipeUpdater.php?name='.$fruitName.'">';
 echo '<article id="descrip" style="background-color:white;">';
 while ($query->fetch())
 {
-	echo htmlspecialchars_decode($content);
+	echo htmlspecialchars_decode($content, ENT_QUOTES | ENT_HTML5);
 }
 echo '</article>';
 if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')

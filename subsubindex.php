@@ -133,7 +133,7 @@ while ($query->fetch())
 		}
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
 	}
-	echo htmlspecialchars_decode($desc);
+	echo htmlspecialchars_decode($desc, ENT_QUOTES | ENT_HTML5);
 }
 echo '</section>';
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	
 	foreach($_POST as $x)
 	{
-		$content .= htmlspecialchars(stripslashes($x));
+		$content .= htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
 	$sql = "UPDATE recipes SET content = '".$content."' WHERE fruit = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 

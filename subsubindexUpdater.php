@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$query->close();
 	foreach($_POST as $x)
 	{
-		$content .= htmlspecialchars(stripslashes($x));
+		$content .= htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
 	$sql = "UPDATE sub_orc_data SET description = '".$content."' WHERE name = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 
