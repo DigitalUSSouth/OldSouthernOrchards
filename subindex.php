@@ -27,7 +27,7 @@ else
 ?>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/OSO.js"></script>
-<script type="text/javascript"> //for mobile tooltops
+<!--<script type="text/javascript"> //for mobile tooltops
 $( function()
 {
     var targets = $( '[rel~=tooltip]' ),
@@ -104,7 +104,7 @@ $( function()
         tooltip.bind( 'click', remove_tooltip );
     });
 });
-</script>
+</script>-->
 </head>
 <body>
 <?php
@@ -166,12 +166,12 @@ while ($query->fetch())
 	if($rowcount % 5 == 0 && $rowcount != 0)
 		echo '</td><tr>';
 		echo '<td class="hasToolTip">';
-		if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
-			echo '<span class="tooltip">'.$ttip.'</span>';
+		#if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
+			#echo '<span class="tooltip">'.$ttip.'</span>';
 		echo '<a href="subsubindex.php?name='.$name.'"';
-		if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
-			echo ' title="Mobile Tooltip Test" rel="tooltip" >';
-		else
+		#if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
+			#echo ' title="Mobile Tooltip Test" rel="tooltip" >';
+		#else
 			echo '>';
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
 		echo '</a></td>';

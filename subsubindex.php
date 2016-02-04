@@ -32,7 +32,6 @@ header("Content-type: text/html; charset=utf-8");
  echo '<div id="container">';
  require('navBar.php');
  require('db_info.php');
- $fruitName = $_GET['name'];
  // tinymce editor
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
@@ -130,6 +129,12 @@ while ($query->fetch())
 		if(is_numeric($fruitType))
 		{
 			$fruitType = array_pop($pieces);
+		}
+		else if ($fruitType==='Apple')
+		{
+			$isCrab = array_pop($pieces);
+			if($isCrab==='Crab')
+				$fruitType = 'Crab Apple';
 		}
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
 	}
