@@ -148,6 +148,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 echo '</form>';
 echo '</div>';
 $query->close();
+$con2->close();
 ?>
 </body>
 </html>

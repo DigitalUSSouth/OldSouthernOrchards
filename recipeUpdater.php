@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		echo $sql;
 	}
 	$query->close();
+	$con2->close();
 }
 ?>
 </body>

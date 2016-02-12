@@ -127,6 +127,7 @@ echo '</form>';
 echo '</div>';
 //close connection with database
 $query->close();
+$con2->close();
 ?>
 </body>
 </html>

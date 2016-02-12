@@ -100,23 +100,63 @@ a.nav:hover
 	color: #993300;
 	text-decoration: underline;
 }
-/*
-.hasToolTip:active .tooltip 
+
+div.hasToolTip
 {
+	width:100%;
     display:block;
-	width: 100px;
-	height: 100px;
-	overflow: visible;
-}
-*/
-.hasToolTip:hover .tooltip 
-{
-    display:block;
-	width: 175px;
-	height: 45px;
-	overflow: visible;
+    position:relative;
+    text-align: center!important;
 }
 
+div.hasToolTip .text-content 
+{
+	position:absolute;
+    top:-3px;
+	left:0;
+    width:178px;
+    height:125px;
+    padding-top:60px;
+    background-color:rgba(0,0,0,0.5);
+    display:none;
+	color:white;
+	font: bold 20pt "Times New Roman"; 
+	border-style: none;	
+	/*background: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	position:absolute;
+	top:-99999px;
+	left:-99999px;
+	opacity: 0;
+	display:table;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;*/
+}
+
+div.hasToolTip:hover .text-content 
+{
+	display:block;
+}
+/*.text-content span 
+{
+	display:table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+a span.text-content:hover
+{
+	opacity:1;
+	position:relative;
+	top:-178px;
+	left:0;
+	height: 178px;
+	width: 178px;
+}
+*/
 .tooltip 
 {
     display: none;

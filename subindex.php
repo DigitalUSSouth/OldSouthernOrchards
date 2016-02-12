@@ -165,7 +165,7 @@ while ($query->fetch())
 		continue;
 	if($rowcount % 5 == 0 && $rowcount != 0)
 		echo '</td><tr>';
-		echo '<td class="hasToolTip">';
+		echo '<td><div class="hasToolTip">';
 		#if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
 			#echo '<span class="tooltip">'.$ttip.'</span>';
 		echo '<a href="subsubindex.php?name='.$name.'"';
@@ -174,11 +174,13 @@ while ($query->fetch())
 		#else
 			echo '>';
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
-		echo '</a></td>';
+			echo '<div class="text-content"><span>'.$name.'</div></span>';
+		echo '</a></div></td>';
 	$rowcount++;
 }
 echo '</tr></table></div>';
 $query->close();
+$con2->close();
 ?>
 </body>
 </html>
