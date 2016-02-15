@@ -101,12 +101,21 @@ a.nav:hover
 	text-decoration: underline;
 }
 
+/*Name of fruit at top of subindex page */
+#fruitHeader
+{
+	font: normal 24pt "Times New Roman", serif; 
+	text-align:center;
+	background-color:white;
+}
+
 div.hasToolTip
 {
 	width:100%;
-    display:block;
+    display:table;
     position:relative;
-    text-align: center!important;
+    text-align:center!important;
+	vertical-align:middle!important;
 }
 
 div.hasToolTip .text-content 
@@ -116,47 +125,19 @@ div.hasToolTip .text-content
 	left:0;
     width:178px;
     height:125px;
-    padding-top:60px;
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(0,0,0,0.0);
+	padding-top:76px;
     display:none;
-	color:white;
+	color:black;
 	font: bold 20pt "Times New Roman"; 
 	border-style: none;	
-	/*background: rgba(0,0,0,0.5);
-	color: white;
-	cursor: pointer;
-	position:absolute;
-	top:-99999px;
-	left:-99999px;
-	opacity: 0;
-	display:table;
-	-webkit-transition: opacity 500ms;
-	-moz-transition: opacity 500ms;
-	-o-transition: opacity 500ms;
-	transition: opacity 500ms;*/
 }
 
 div.hasToolTip:hover .text-content 
 {
-	display:block;
-}
-/*.text-content span 
-{
 	display:table-cell;
-	text-align: center;
-	vertical-align: middle;
 }
 
-a span.text-content:hover
-{
-	opacity:1;
-	position:relative;
-	top:-178px;
-	left:0;
-	height: 178px;
-	width: 178px;
-}
-*/
 .tooltip 
 {
     display: none;
@@ -173,7 +154,7 @@ a span.text-content:hover
 	font-size: 12px;
 }
 
-.tooltip:after /* triangle decoration */
+.tooltip:after /* triangle decoration for tooltip */
 {
 	width: 0;
 	height: 0;

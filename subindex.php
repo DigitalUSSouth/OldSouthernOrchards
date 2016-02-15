@@ -1,6 +1,17 @@
 <?php
 define('EMBEDDED',true);
 define('OSO_DB', true);
+function extractFruitName($name, $fruitName)
+{
+	$pieces = explode(' ',$name);
+	foreach($pieces as $word)
+	{
+		if($word == $fruitName)
+			break;
+		$result = $result . $word . ' ' ;
+	}
+	return $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,6 +170,7 @@ $query->store_result();
 $query->bind_result($fileName, $name, $thumbName, $disp, $ttip);
 $rowcount = 0;
 echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
+echo '<th colspan="5" id="fruitHeader">'.$fruitName.'</th></tr><tr>';
 while ($query->fetch())
 {
 	if($disp==0)
@@ -174,7 +186,7 @@ while ($query->fetch())
 		#else
 			echo '>';
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
-			echo '<div class="text-content"><span>'.$name.'</div></span>';
+			echo '<div class="text-content"><span>'.extractFruitName($name,$fruitName).'</div></span>';
 		echo '</a></div></td>';
 	$rowcount++;
 }

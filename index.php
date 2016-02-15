@@ -61,72 +61,112 @@ else
 					</nav>
 				</td>
 				<td class="bodyText" id="fruitTableStart">
-					<a href="subindex.php?fruitName=Apple" title="Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
+					<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Apricot" title="Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" /></a>
+					<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Cherry" title="Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" /></a>
+					<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Crab Apple" title="Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
+					<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
+				</div>
 				</td> 
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Grape" title="Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" /></a>
+					<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Grapefruit" title="Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Kumquat" title="Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Lemon" title="Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" /></a>
+				</div>
 				</td>			
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Lime" title="Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Loquat" title="Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Mango" title="Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" /></a>
+				</div>
 				</td>
    				<td class="bodyText">
-					<a href="subindex.php?fruitName=Mulberry" title="Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" /></a>
+				</div>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Orange" title="Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Pawpaw" title="Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Peach" title="Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Pear" title="Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" /></a>
+				</div>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Persimmon" title="Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Plum" title="Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Quince" title="Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" /></a>
+				</div>
 				</td>
 				<td class="bodyText">
-					<a href="subindex.php?fruitName=Tangerine" title="Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" /></a>
+				<div class="hasToolTip">
+					<a href="subindex.php?fruitName=Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" /></a>
+				</div>
 				</td>
 		</tr>';
 echo '<tr>
