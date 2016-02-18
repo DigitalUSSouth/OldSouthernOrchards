@@ -1,7 +1,5 @@
 body 
 {
-	/*background-image: url(images/bgtile.jpg);
-	background-repeat: repeat-x;*/
 	background-color: #a09b90;
 	margin: 20px 0 0 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -9,8 +7,6 @@ body
 
 #content 
 {
-	/*background-image: url(images/sidebarbackground.jpg);
-	background-repeat: repeat-y;*/
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
@@ -61,6 +57,7 @@ h2
 	border:0;
 	padding:0;
 }
+
 #fruitMenu a
 {
 	text-decoration:none;
@@ -73,6 +70,14 @@ table
 	padding: 0px;
 	background-color: white;
     border-collapse: separate;
+}
+
+td
+{
+	padding-left:2px;
+	padding-right:2px;
+	border:0;
+	margin:0px;
 }
 
 /* NAVIGATION CSS */
@@ -109,7 +114,7 @@ a.nav:hover
 	background-color:white;
 }
 
-div.hasToolTip
+div.hasRollover
 {
 	width:100%;
     display:table;
@@ -118,22 +123,21 @@ div.hasToolTip
 	vertical-align:middle!important;
 }
 
-div.hasToolTip .text-content 
+div.hasRollover .text-content 
 {
 	position:absolute;
-    top:-3px;
+    top:-1px;
 	left:0;
     width:178px;
-    height:125px;
-    background-color:rgba(0,0,0,0.0);
-	padding-top:76px;
+    height:103px;
+    background-color:rgba(0,0,0,0.5);
     display:none;
-	color:black;
+	color:white;
 	font: bold 20pt "Times New Roman"; 
 	border-style: none;	
 }
 
-div.hasToolTip:hover .text-content 
+div.hasRollover:hover .text-content 
 {
 	display:table-cell;
 }

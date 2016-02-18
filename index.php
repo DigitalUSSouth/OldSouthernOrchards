@@ -61,111 +61,131 @@ else
 					</nav>
 				</td>
 				<td class="bodyText" id="fruitTableStart">
-					<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" /></a>
+					<div class="hasRollover">
+					<a href="subindex.php?fruitName=Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Apple</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-					<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" /></a>
+					<div class="hasRollover">
+					<a href="subindex.php?fruitName=Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Apricot</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-					<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" /></a>
+					<div class="hasRollover">
+					<a href="subindex.php?fruitName=Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Cherry</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-					<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" /></a>
+					<div class="hasRollover">
+					<a href="subindex.php?fruitName=Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Crab Apple</span></div></a>
 				</div>
 				</td> 
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-					<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" /></a>
+					<div class="hasRollover">
+					<a href="subindex.php?fruitName=Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Grape</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Grapefruit</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Kumquat</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Lemon</span></div></a>
 				</div>
 				</td>			
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Lime</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Loquat</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Mango</span></div></a>
 				</div>
 				</td>
    				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Mulberry</span></div></a>
 				</div>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Orange</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Pawpaw</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Peach</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Pear</span></div></a>
 				</div>
 				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Persimmon</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Plum</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Quince</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
-				<div class="hasToolTip">
-					<a href="subindex.php?fruitName=Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" /></a>
+				<div class="hasRollover">
+					<a href="subindex.php?fruitName=Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" />
+					<div class="text-content" style="padding-top:76px;"><span>Tangerine</span></div></a>
 				</div>
 				</td>
 		</tr>';

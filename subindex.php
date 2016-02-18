@@ -6,7 +6,7 @@ function extractFruitName($name, $fruitName)
 	$pieces = explode(' ',$name);
 	foreach($pieces as $word)
 	{
-		if($word == $fruitName)
+		if($word == $fruitName || $word == 'Crab')
 			break;
 		$result = $result . $word . ' ' ;
 	}
@@ -162,22 +162,22 @@ if (isset($_GET['fruitName']))
  		header('Location: http://lichen.csd.sc.edu/oldsouthernorchards/');
  	}
 
-	$query = $con2->prepare("SELECT filename, name, thumbname, display, tooltip FROM sub_orc_data WHERE fruitName = ? ORDER BY name");
+	$query = $con2->prepare("SELECT filename, name, thumbname, display, rollover FROM sub_orc_data WHERE fruitName = ? ORDER BY name");
 	$query->bind_param('s', $fruitName);
 }
 $query->execute();
 $query->store_result();
-$query->bind_result($fileName, $name, $thumbName, $disp, $ttip);
+$query->bind_result($fileName, $name, $thumbName, $disp, $ro);
 $rowcount = 0;
-echo '<table style="margin-left:auto; margin-right:auto;"><tr>';
-echo '<th colspan="5" id="fruitHeader">'.$fruitName.'</th></tr><tr>';
+echo '<table style="margin-left:auto; margin-right:auto;">';
+echo '<caption id="fruitHeader">'.$fruitName.'</caption><tbody><tr>';
 while ($query->fetch())
 {
 	if($disp==0)
 		continue;
 	if($rowcount % 5 == 0 && $rowcount != 0)
 		echo '</td><tr>';
-		echo '<td><div class="hasToolTip">';
+		echo '<td><div class="hasRollover">';
 		#if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
 			#echo '<span class="tooltip">'.$ttip.'</span>';
 		echo '<a href="subsubindex.php?name='.$name.'"';
@@ -186,11 +186,16 @@ while ($query->fetch())
 		#else
 			echo '>';
 			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
-			echo '<div class="text-content"><span>'.extractFruitName($name,$fruitName).'</div></span>';
+			echo '<div class="text-content" style="padding-top:'.$ro.'px;';
+			if($ro==63)
+				echo ' height:117px;">';
+			else
+				echo '">';
+			echo '<span>'.extractFruitName($name,$fruitName).'</span></div>';
 		echo '</a></div></td>';
 	$rowcount++;
 }
-echo '</tr></table></div>';
+echo '</tr></tbody></table></div>';
 $query->close();
 $con2->close();
 ?>

@@ -1,10 +1,22 @@
 <?php
 define('OSO_DB', true);
+function trim_result($needle, $haystack)
+{
+	$pos = strpos($haystack, $needle);
+	$start = (($pos - 50) >= 0) ? $pos - 50 : 0;
+	$result = substr($haystack, $start, 100);
+	$rep = '<mark>' . $needle . '</mark>';
+	$result = str_ireplace($needle, $rep , $result);
+	return $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Old Southern Orchards</title>
+<style>
+img { width:89px; height:178px;}
+</style>
 </head>
 <body>
 <?php
@@ -58,21 +70,38 @@ else if($type==3)	// search all
 }
 echo "<p>Search Results (".$numresults.") for '".$term."'</p>";
 echo $allresults;
+$numresults=0;
 echo 'Not what you were looking for? <a href="search.php">Search again</a>';
 $query->close();
 
 function search_fruits()
 {
-	$sql = "SELECT name, fruitname, description FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";
+	$sql = "SELECT name, fruitname, description, display FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";
 	$query = $GLOBALS['con2']->prepare($sql);
 	$query->execute();
 	$query->store_result();
-	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description']);
+	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description'], $GLOBALS['display']);
 	while ($query->fetch())
 	{
+		if($GLOBALS['display']==0)
+			continue;
 		$GLOBALS['numresults']++;
 		$results .= '<p style="clear:both">Fruit <a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
-		$results .= htmlspecialchars_decode($GLOBALS['description']);
+		#$results .= htmlspecialchars_decode($GLOBALS['description']);
+		$results .= '</p>';
+	}
+	$sql = "SELECT name, fruitname, description, display FROM sub_orc_data WHERE description LIKE '%".$GLOBALS['term']."%'";
+	$query = $GLOBALS['con2']->prepare($sql);
+	$query->execute();
+	$query->store_result();
+	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description'], $GLOBALS['display']);
+	while ($query->fetch())
+	{
+		if($GLOBALS['display']==0)
+			continue;
+		$GLOBALS['numresults']++;
+		$results .= '<p style="clear:both">Fruit <a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a><br>';
+		$results .= trim_result($GLOBALS['term'], htmlspecialchars_decode($GLOBALS['description']));
 		$results .= '</p>';
 	}
 	return $results;

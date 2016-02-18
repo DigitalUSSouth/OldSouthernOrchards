@@ -1,28 +1,27 @@
 body 
 {
-	background-image: url(images/bgtile.jpg);
-	background-repeat: repeat-x;
 	background-color: #a09b90;
 	margin: 20px 0 0 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-#content {
-	background-image: url(images/sidebarbackground.jpg);
-	background-repeat: repeat-y;
+#content 
+{
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 250px;
+	padding-left: 50px;
 }
 
-#container {
+#container 
+{
 	margin: 0 auto;
 	width: 1004px;
 	height: 100%;
 }
 
-#contentcontainer {
+#contentcontainer 
+{
 	background-color: #fff;
 	width: 100%;
 	height: 100%;
@@ -43,8 +42,39 @@ h2 {
 	width: 440px;
 }
 
+#fruitMenu
+{
+	width:125px;
+	font-size:10pt;
+	margin:0;
+	border:0;
+	padding:0;
+}
+#fruitMenu a
+{
+	text-decoration:none;
+	color:#a00c0a;
+}
+
+table
+{
+	border-spacing:0;
+	padding: 0px;
+	background-color: white;
+    border-collapse: collapse;
+}
+
+td
+{
+	padding-left:2px;
+	padding-right:2px;
+	border:0;
+	margin:0px;
+}
+
 /* NAVIGATION CSS */
-#navigation {
+#navigation 
+{
 	background-color: #9da06a;
 	border-top: 2px #fff solid;
 	border-bottom: 2px #fff solid;
@@ -52,16 +82,53 @@ h2 {
 	clear: both;
 }
 
-a.nav {
+a.nav 
+{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #fff;
 	text-decoration: none;
 }
 
-a.nav:hover {
+a.nav:hover 
+{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #993300;
 	text-decoration: underline;
+}
+
+#fruitHeader
+{
+	font: normal 24pt "Times New Roman", serif; 
+	background-color:white;
+}
+
+div.hasRollover
+{
+	width:100%;
+    display:table;
+    position:relative;
+    text-align:center!important;
+	vertical-align:middle!important;
+}
+
+div.hasRollover .text-content 
+{
+	position:absolute;
+    top:-1px;
+	left:0;
+    width:178px;
+    height:103px;
+    background-color:rgba(0,0,0,0.5);
+    display:none;
+	color:white;
+	font: bold 20pt "Times New Roman"; 
+	border:0;	
+	cursor:pointer;
+}
+
+div.hasRollover:hover .text-content 
+{
+	display:table-cell;
 }
