@@ -1,7 +1,7 @@
 db_info.php
 test.php
 images/
-*db_info.php
+BAD_db_info.php
 *.tar
 *gitignore
 Aloha-Editor/
