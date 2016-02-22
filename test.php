@@ -4,7 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	foreach($_POST as $x)
 	{
-		echo htmlspecialchars(stripslashes($x));
+		$x = str_replace("'","''",$x);
+		echo htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
 }
 ?>
