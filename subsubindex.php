@@ -117,7 +117,7 @@ if (isset($_GET['name']))
 $query->execute();
 $query->store_result();
 $query->bind_result($fileName, $desc);
-echo '<form method="post" "action="subsubindexUpdater.php?name='.$fruitName.'">';
+echo '<form method="post" "action="subsubindexUpdater.php?name='.str_replace("'","''",$fruitName).'">';
 #echo '<form method="post" action="test.php">';
 echo '<section style="background-color:white;" id="spacer">';
 while ($query->fetch())

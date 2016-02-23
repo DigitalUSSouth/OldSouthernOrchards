@@ -10,7 +10,6 @@ define('OSO_DB', true);
 <?php
 header("Content-type: text/html; charset=utf-8");
 $fruitName = $_GET['name'];
-#echo $fruitName;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
 	 require('db_info.php');
@@ -40,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$content .= htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
-	$sql = "UPDATE sub_orc_data SET description = '".$content."' WHERE name = '".str_replace("'","''",$fruitName)."'";
+	$fruitName = str_replace("'","''",$fruitName)
+	$sql = "UPDATE sub_orc_data SET description = '".$content."' WHERE name = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 
 	{
 		echo "Record updated successfully";
