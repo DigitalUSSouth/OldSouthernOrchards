@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$content .= htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
+	$fruitName = str_replace("'","''",$fruitName);
 	$sql = "UPDATE recipes SET content = '".$content."' WHERE fruit = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 
 	{

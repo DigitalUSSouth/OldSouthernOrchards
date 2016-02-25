@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$content .= htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
-	$fruitName = str_replace("'","''",$fruitName)
+	$fruitName = str_replace("'","''",$fruitName);
 	$sql = "UPDATE sub_orc_data SET description = '".$content."' WHERE name = '".$fruitName."'";
 	if ($con2->query($sql) === TRUE) 
 	{

@@ -18,17 +18,5 @@ unset($_SESSION['UU']);
 unset($_SESSION['UP']);
 unset($_SESSION['ISADMIN']);
 unset($_SESSION['ISLOGGEDIN']);
-/*
-if ($isLoggedIn == 1)
-{
-	$user=$_COOKIE['UU'];
-	$pw=$_COOKIE['UP'];
-	unset($_COOKIE['UU']);
-	unset($_COOKIE['UP']);
-	setcookie('UU',FALSE,time()-3600);
-	setcookie('UP',FALSE,time()-3600);
-	$isLoggedIn=0;
-}
-*/
 header('Location: index.php');
 ?>

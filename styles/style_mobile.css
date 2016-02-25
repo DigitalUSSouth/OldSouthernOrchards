@@ -14,7 +14,7 @@ body
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 50px;
+	padding-left: 10px;
 }
 
 #container 
@@ -36,6 +36,22 @@ h2
 	font-size: 18px;
 	font-weight: 200;
 	color: #a00c0a;
+}
+
+img 
+{
+	width:25%;
+	height:25%;
+}
+
+section
+{
+	height:100%;
+}
+
+article
+{
+	height:100%;
 }
 
 #orchardTable 
@@ -78,6 +94,7 @@ table
 	border-bottom: 2px #fff solid;
 	padding: 5px 15px 5px 15px;
 	clear: both;
+	width:100%;
 }
 
 a.nav 
@@ -94,6 +111,34 @@ a.nav:hover
 	font-size: 12px;
 	color: #993300;
 	text-decoration: underline;
+}
+
+div.hasRollover
+{
+	width:100%;
+    display:table;
+    position:relative;
+    text-align:center!important;
+	vertical-align:middle!important;
+}
+
+div.hasRollover .text-content 
+{
+	position:absolute;
+    top:-1px;
+	left:0;
+    width:178px;
+    height:103px;
+    background-color:rgba(0,0,0,0.5);
+    display:none;
+	color:white;
+	font: bold 20pt "Times New Roman"; 
+	border-style: none;	
+}
+
+div.hasRollover:active .text-content 
+{
+	display:table-cell;
 }
 
 #tooltip

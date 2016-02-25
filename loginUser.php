@@ -6,7 +6,7 @@ define('OSO_DB', true);
 if ((!isset($_POST['Username'])) || (!isset($_POST['Password'])) || $_POST['Username'] == '' || $_POST['Password'] == '') 
 {
 	echo 'Error: No information provided.<br />';
-	die('<a href="index.php">Return</a>');
+	die('<a href="login.php">Return</a>');
 }
 else
 {
@@ -31,7 +31,7 @@ if (mysql_numrows($result) == 0)
 {
 	$_SESSION['ISLOGGEDIN']='0';
 	echo 'Error: Provided username/password combination does not exist.<br />';
-	die('<a href="index.php">Return</a>');
+	die('<a href="login.php">Return</a>');
 }
 //if there is 1 row returned, log in the user by creating a session of their passhash
 if (mysql_numrows($result) == 1)
