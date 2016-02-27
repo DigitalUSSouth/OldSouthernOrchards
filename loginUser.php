@@ -46,12 +46,7 @@ if (mysql_numrows($result) == 1)
 		$_SESSION['UP']=$userPass;
 		$_SESSION['ISADMIN']=$row['IsAdmin'];
 		$_SESSION['ISLOGGEDIN']='1';
-	}
-	
-	//create cookie
-	//setcookie('UU',$userName,time()+3600);
-	//setcookie('UP',$userPass,time()+3600);
-	
+	}	
 	//successful login, let the user know
 	header('Location: index.php'); 
 }

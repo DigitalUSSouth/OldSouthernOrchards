@@ -16,6 +16,7 @@ if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
 }
 else
 {

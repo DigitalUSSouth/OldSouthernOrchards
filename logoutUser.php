@@ -1,6 +1,5 @@
 <?php
 session_start();
-//gather required information via validateUser.php
 define('EMBEDDED',true);
 define('OSO_DB', true);
 //if they are logged in, log them out

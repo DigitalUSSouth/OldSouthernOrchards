@@ -9,7 +9,10 @@ define('OSO_DB', true);
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <?php
+$isMobile=0;
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
       echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
@@ -17,15 +20,94 @@ if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
+	echo '<script type="text/javascript" src="scripts/bootstrap.js"></script>';
+	$isMobile=1;
 }
 else
 {
 	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
 }
+if($isMobile===1)
+	echo '<script type="text/javascript"> //for mobile tooltops
+	$( function()
+	{
+	var targets = $( "[rel~=tooltip]" ),
+		target  = false,
+		tooltip = false,
+		title   = false;
+
+	targets.bind( "mouseenter", function()
+	{
+		target  = $( this );
+		tip     = target.attr( "title" );
+		tooltip = $( "<div id=\"tooltip\"></div>" );
+
+		if( !tip || tip == "" )
+			return false;
+
+		target.removeAttr( "title" );
+		tooltip.css( "opacity", 0.5 )
+			   .html( tip )
+			   .appendTo( "body" );
+
+		var init_tooltip = function()
+		{
+			if( $( window ).width() < tooltip.outerWidth() * 1.5 )
+				tooltip.css( "max-width", $( window ).width() / 2 );
+			else
+				tooltip.css( "max-width", 340 );
+
+			var pos_left = target.offset().left + ( target.outerWidth() / 2 ) - ( tooltip.outerWidth() / 2 ),
+				pos_top  = target.offset().top - tooltip.outerHeight() - 20;
+
+			if( pos_left < 0 )
+			{
+				pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+				tooltip.addClass( "left" );
+			}
+			else
+				tooltip.removeClass( "left" );
+
+			if( pos_left + tooltip.outerWidth() > $( window ).width() )
+			{
+				pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() / 2 + 20;
+				tooltip.addClass( "right" );
+			}
+			else
+				tooltip.removeClass( "right" );
+
+			if( pos_top < 0 )
+			{
+				var pos_top  = target.offset().top + target.outerHeight();
+				tooltip.addClass( "top" );
+			}
+			else
+				tooltip.removeClass( "top" );
+
+			tooltip.css( { left: pos_left, top: pos_top } )
+				   .animate( { top: "+=10", opacity: 1 }, 50 );
+		};
+
+		init_tooltip();
+		$( window ).resize( init_tooltip );
+
+		var remove_tooltip = function()
+		{
+			tooltip.animate( { top: "-=10", opacity: 0 }, 50, function()
+			{
+				$( this ).remove();
+			});
+
+			target.attr( "title", tip );
+		};
+
+		target.bind( "mouseleave", remove_tooltip );
+		tooltip.bind( "click", remove_tooltip );
+	});
+	});
+	</script>';
 ?>
-<script type="text/javascript" src="scripts/OSO.js"></script>
-<!--<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>-->
-</script>
 </head>
 <body>
 <?php
@@ -62,25 +144,29 @@ else
 				</td>
 				<td class="bodyText" id="fruitTableStart">
 					<div class="hasRollover">
-					<a href="subindex.php?fruitName=Apple"><img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" />
+					<a href="subindex.php?fruitName=Apple" rel="tooltip" title="Apple">
+					<img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Apple</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 					<div class="hasRollover">
-					<a href="subindex.php?fruitName=Apricot"><img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" />
+					<a href="subindex.php?fruitName=Apricot" rel="tooltip" title="Apricot">
+					<img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Apricot</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 					<div class="hasRollover">
-					<a href="subindex.php?fruitName=Cherry"><img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" />
+					<a href="subindex.php?fruitName=Cherry" rel="tooltip" title="Cherry">
+					<img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Cherry</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 					<div class="hasRollover">
-					<a href="subindex.php?fruitName=Crab Apple"><img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" />
+					<a href="subindex.php?fruitName=Crab Apple" rel="tooltip" title="Crab Apple">
+					<img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Crab Apple</span></div></a>
 				</div>
 				</td> 
@@ -88,25 +174,29 @@ else
 echo '<tr>
 				<td class="bodyText">
 					<div class="hasRollover">
-					<a href="subindex.php?fruitName=Grape"><img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" />
+					<a href="subindex.php?fruitName=Grape" rel="tooltip" title="Grape">
+					<img src="images/Grape-Muscadine-thumb.png" id="Grape-Muscadine-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Grape</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Grapefruit"><img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" />
+					<a href="subindex.php?fruitName=Grapefruit" rel="tooltip" title="Grapefruit">
+					<img src="images/Grapefruit-Royal-thumb.png" id="Grapefruit-Royal-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Grapefruit</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Kumquat"><img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" />
+					<a href="subindex.php?fruitName=Kumquat" rel="tooltip" title="Kumquat">
+					<img src="images/Kumquat-Passmore-thumb.png" id="Kumquat-Passmore-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Kumquat</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Lemon"><img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" />
+					<a href="subindex.php?fruitName=Lemon" rel="tooltip" title="Lemon">
+					<img src="images/Lemon-Sport-thumb.png" id="Lemon-Sport-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Lemon</span></div></a>
 				</div>
 				</td>			
@@ -114,25 +204,29 @@ echo '<tr>
 echo '<tr>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Lime"><img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" />
+					<a href="subindex.php?fruitName=Lime" rel="tooltip" title="Lime">
+					<img src="images/Lime-Lisbon-thumb.png" id="Lime-Lisbon-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Lime</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Loquat"><img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" />
+					<a href="subindex.php?fruitName=Loquat" rel="tooltip" title="Loquat">
+					<img src="images/Loquat-Oliver-thumb.png" id="Loquat-Oliver-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Loquat</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Mango"><img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" />
+					<a href="subindex.php?fruitName=Mango" rel="tooltip" title="Mango">
+					<img src="images/Mango-Johnson-thumb.png" id="Mango-Johnson-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Mango</span></div></a>
 				</div>
 				</td>
    				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Mulberry"><img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" />
+					<a href="subindex.php?fruitName=Mulberry" rel="tooltip" title="Mulberry">
+					<img src="images/Mulberry-Travis-thumb.png" id="Mulberry-Travis-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Mulberry</span></div></a>
 				</div>
 				</td>
@@ -140,25 +234,29 @@ echo '<tr>
 echo '<tr>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Orange"><img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" />
+					<a href="subindex.php?fruitName=Orange rel="tooltip" title="Orange"">
+					<img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Orange</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Pawpaw"><img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" />
+					<a href="subindex.php?fruitName=Pawpaw" rel="tooltip" title="Pawpaw">
+					<img src="images/Pawpaw-1924-thumb.png" id="Pawpaw-1924-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Pawpaw</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Peach"><img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" />
+					<a href="subindex.php?fruitName=Peach" rel="tooltip" title="Peach">
+					<img src="images/Peach-RedCheek-thumb.png" id="Peach-RedCheek-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Peach</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Pear"><img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" />
+					<a href="subindex.php?fruitName=Pear" rel="tooltip" title="Pear">
+					<img src="images/Pear-Read-thumb.png" id="Pear-Read-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Pear</span></div></a>
 				</div>
 				</td>
@@ -166,25 +264,29 @@ echo '<tr>
 echo '<tr>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Persimmon"><img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" />
+					<a href="subindex.php?fruitName=Persimmon" rel="tooltip" title="Persimmon">
+					<img src="images/Persimmon-Fuyu-thumb.png" id="Persimmon-Fuyu-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Persimmon</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Plum"><img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" />
+					<a href="subindex.php?fruitName=Plum" rel="tooltip" title="Plum">
+					<img src="images/Plum-Lafayette-thumb.png" id="Plum-Lafayette-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Plum</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Quince"><img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" />
+					<a href="subindex.php?fruitName=Quince" rel="tooltip" title="Quince">
+					<img src="images/Quince-Champion-thumb.png" id="Quince-Champion-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Quince</span></div></a>
 				</div>
 				</td>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Tangerine"><img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" />
+					<a href="subindex.php?fruitName=Tangerine" rel="tooltip" title="Tangerine">
+					<img src="images/Tangerine-Dancy-thumb.png" id="Tangerine-Dancy-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Tangerine</span></div></a>
 				</div>
 				</td>

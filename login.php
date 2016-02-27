@@ -11,6 +11,8 @@ if ($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 <head>
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="scripts/OSO.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <?php
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
@@ -19,6 +21,8 @@ if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
+	echo '<script type="text/javascript" src="scripts/bootstrap.js"></script>';
 }
 else
 {
@@ -27,8 +31,6 @@ else
 }
 
 ?>
-<script type="text/javascript" src="scripts/OSO.js"></script>
-<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 </head>
 <body onLoad="calcHeight()">
 <?php
