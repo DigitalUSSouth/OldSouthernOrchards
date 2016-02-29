@@ -147,11 +147,11 @@ div.hasRollover:active .text-content
 {
     text-align: center;
     color: white;
-    background-color:rgba(0,0,0,0.5);
+    background-color:black;
     position: absolute;
     z-index: 100;
     padding: 0px;
-	font: normal 16pt "Times New Roman", serif;
+	font: normal 12pt "Times New Roman", serif;
 }
  
 #tooltip:after /* triangle decoration */

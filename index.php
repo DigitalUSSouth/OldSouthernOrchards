@@ -86,7 +86,10 @@ if($isMobile===1)
 				tooltip.removeClass( "top" );
 
 			tooltip.css( { left: pos_left, top: pos_top } )
-				   .animate( { top: "+=10", opacity: 1 }, 50 );
+				   //.animate( { top: "-=10", opacity: 1 }, 50 );
+			tooltip.css( "opacity", 0.8 )
+			   .html( tip )
+			   .appendTo( "body" );
 		};
 
 		init_tooltip();
@@ -234,7 +237,7 @@ echo '<tr>
 echo '<tr>
 				<td class="bodyText">
 				<div class="hasRollover">
-					<a href="subindex.php?fruitName=Orange rel="tooltip" title="Orange"">
+					<a href="subindex.php?fruitName=Orange" rel="tooltip" title="Orange">
 					<img src="images/Orange-Fausta-thumb.png" id="Orange-Fausta-Image" />
 					<div class="text-content" style="padding-top:76px;"><span>Orange</span></div></a>
 				</div>

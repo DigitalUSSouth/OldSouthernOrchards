@@ -50,7 +50,6 @@ if (mysql_numrows($result) == 1)
 	//successful login, let the user know
 	header('Location: index.php'); 
 }
-
 //close connection with database
 mysql_close($con);
 ?>

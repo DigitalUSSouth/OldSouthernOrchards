@@ -76,7 +76,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
         "searchreplace wordcount visualchars visualblocks code fullscreen",
         "insertdatetime nonbreaking media table contextmenu paste textcolor colorpicker textpattern imagetools"
     ],
-    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code"
 });</script>';
 }
 // end tinymce editor
@@ -125,8 +125,6 @@ echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
 echo '<section style="background-color:white;" id="spacer">';
 while ($query->fetch())
 {
-	if(strstr($desc, 'img')===FALSE)
-	{
 		$pieces = explode(" ", $fruitName);
 		$fruitType = array_pop($pieces);
 		if(is_numeric($fruitType))
@@ -139,14 +137,17 @@ while ($query->fetch())
 			if($isCrab==='Crab')
 				$fruitType = 'Crab Apple';
 		}
+		if(strstr($desc, 'img')===FALSE)
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
-	}
 	echo htmlspecialchars_decode($desc, ENT_QUOTES | ENT_HTML5);
 }
 echo '</section>';
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<input type="submit" />';
+	echo '<input type="reset" />';
+	$previous = 'http://lichen.csd.sc.edu/oldsouthernorchards/subindex.php?fruitName='.$fruitType;
+	echo '<input type="button" value="Return to subindex page" onClick="window.location.href=\''.$previous.'\'">';
 }
 echo '</form>';
 echo '</div>';

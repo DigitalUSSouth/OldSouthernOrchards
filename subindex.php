@@ -98,7 +98,10 @@ if($isMobile===1)
 				tooltip.removeClass( "top" );
 
 			tooltip.css( { left: pos_left, top: pos_top } )
-				   .animate( { top: "+=10", opacity: 1 }, 50 );
+				   //.animate( { top: "+=10", opacity: 1 }, 50 );
+			tooltip.css( "opacity", 0.8 )
+			   .html( tip )
+			   .appendTo( "body" );
 		};
 
 		init_tooltip();
