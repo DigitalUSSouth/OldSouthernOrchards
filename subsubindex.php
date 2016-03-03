@@ -142,12 +142,22 @@ while ($query->fetch())
 	echo htmlspecialchars_decode($desc, ENT_QUOTES | ENT_HTML5);
 }
 echo '</section>';
+$query->close();
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<input type="submit" />';
 	echo '<input type="reset" />';
 	$previous = 'http://lichen.csd.sc.edu/oldsouthernorchards/subindex.php?fruitName='.$fruitType;
 	echo '<input type="button" value="Return to subindex page" onClick="window.location.href=\''.$previous.'\'">';
+	# add next image button
+	/*$query = $con2->prepare("SELECT MIN(name) FROM sub_orc_data where name > ? and fruitname = ?");
+	$query->bind_param('ss', $fruitName, $fruitType);
+	$query->execute();
+	$query->store_result();
+	$query->bind_result($nxname);
+	//if($nxname)
+		echo '<input type="button" value="Next fruit" 
+				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$nxname.'">';*/
 }
 echo '</form>';
 echo '</div>';

@@ -123,7 +123,9 @@ while ($query->fetch())
 echo '</article>';
 if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 {
-	echo '<input type="submit" />';
+	echo '<input type="submit">';
+	echo '<input type="reset">';
+	echo '<input type="button" value="Return to index page" onClick="window.location.href=\'index.php\';">';
 }
 echo '</form>';
 echo '</div>';
