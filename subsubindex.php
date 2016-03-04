@@ -80,6 +80,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 });</script>';
 }
 // end tinymce editor
+echo '<div id="subsubcontent">';
 //connect to the database
 $host = "localhost";
 $username = getUserName();
@@ -122,7 +123,7 @@ $query->store_result();
 $query->bind_result($fileName, $desc);
 echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
 #echo '<form method="post" action="test.php">';
-echo '<section style="background-color:white;" id="spacer">';
+echo '<section style="background-color:white;padding-left:27px;" id="spacer">';
 while ($query->fetch())
 {
 		$pieces = explode(" ", $fruitName);
@@ -160,7 +161,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$nxname.'">';*/
 }
 echo '</form>';
-echo '</div>';
+echo '</div></div>';
 $query->close();
 $con2->close();
 ?>

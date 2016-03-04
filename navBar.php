@@ -5,7 +5,7 @@ if (!defined('EMBEDDED'))
 {
    die ('Error: file must be embedded within another page');
 }
-echo '   <img src="images/header.png" style="padding-left: 15px;" />
+echo '   <img src="images/titleimage.png" style="padding-left: 15px;" />
     
         <div id="navigation" class="nav">
 		

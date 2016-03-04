@@ -1,23 +1,51 @@
+@charset "UTF-8";
+
 body 
 {
-	background-color: #a09b90;
+	background-color: #646b47;
 	margin: 20px 0 0 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #content 
 {
+	background-image: url(../images/ososidebarbg.png);
+	background-repeat: repeat-y;
+	background-position: left;
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 50px;
+	padding-left: 255px;
+}
+
+#subcontent 
+{
+	background-image: url(../images/ososidebarbg.png);
+	background-repeat: repeat-y;
+	background-position: left;
+	background-color: #fff;
+	border-bottom: 2px #fff solid;
+	border-left: 0px;
+	padding-left: 225px;
+}
+
+#subsubcontent 
+{
+	background-image:url(../images/ososidebarbg.png);
+	background-repeat:repeat-y;
+	background-position:left;
+	background-color:#fff;
+	border-bottom:2px #fff solid;
+	border-left:0px;
+	padding-left:225px;
 }
 
 #container 
 {
 	margin: 0 auto;
-	width: 1004px;
+	width: 1200px;
 	height: 100%;
+	padding-right:0;
 }
 
 #contentcontainer 
@@ -27,10 +55,11 @@ body
 	height: 100%;
 }
 
-h2 {
-	font-size: 18px;
-	font-weight: 200;
-	color: #a00c0a;
+h2 
+{
+	font-weight:200;
+	color:#dd2e03;
+	font-size:16pt;
 }
 
 #orchardTable 
@@ -48,12 +77,12 @@ h2 {
 	font-size:10pt;
 	margin:0;
 	border:0;
-	padding:0;
+	padding-left:35px;
 }
 #fruitMenu a
 {
 	text-decoration:none;
-	color:#a00c0a;
+	color:#dd2e03;
 }
 
 table
@@ -75,7 +104,7 @@ td
 /* NAVIGATION CSS */
 #navigation 
 {
-	background-color: #9da06a;
+	background-color:#eed777;
 	border-top: 2px #fff solid;
 	border-bottom: 2px #fff solid;
 	padding: 5px 15px 5px 15px;
@@ -86,7 +115,7 @@ a.nav
 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #fff;
+	color: #a83e0b;
 	text-decoration: none;
 }
 
@@ -100,8 +129,11 @@ a.nav:hover
 
 #fruitHeader
 {
-	font: normal 24pt "Times New Roman", serif; 
+	font: normal 16pt Arial, Helvetica, sans-serif; 
+	text-align:left;
 	background-color:white;
+	color:#dd2e03;
+	padding-top:15px;
 }
 
 div.hasRollover

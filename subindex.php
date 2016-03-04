@@ -127,10 +127,10 @@ if($isMobile===1)
 <body>
 <?php
 header("Content-type: text/html; charset=utf-8");
- echo '
- <div id="container">';
+ echo '<div id="container">';
  require('navBar.php');
  require('db_info.php');
+ echo '<div id="subcontent">'
 ?>
 <?php
  $fruitName = $_GET['fruitName'];
@@ -202,7 +202,7 @@ while ($query->fetch())
 		echo '</a></div></td>';
 	$rowcount++;
 }
-echo '</tr></tbody></table></div>';
+echo '</tr></tbody></table></div></div>';
 $query->close();
 $con2->close();
 ?>

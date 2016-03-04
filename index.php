@@ -115,36 +115,15 @@ if($isMobile===1)
 <body>
 <?php
  echo '<div id="container">';
- echo '<div style="visibility: hidden;">';
  require('navBar.php');
- echo '</div>';
- echo '<div id="content"><br /><h2 id="oso_header" style="text-align: center">Old Southern Orchards<span class="subtitle"></span></h2>';
- echo '<table id="orchardTable">';
+ echo '<div id="content">
+		<table id="orchardTable">
+			<caption style="text-align:left;padding-top:15px;"><span style="color:#dd2e03;font-size:16pt;">Orchard </span>
+						<span class="subtitle" style="font-size:12pt;color:#646b47;font-family;font-family:Times New Roman,serif;">
+						So many awesome fruits from the orchard. Sweet.
+						</span>
+			</caption>';
  echo    '<tr>
-				<td rowspan="6" style="vertical-align: top;">
-					<nav id="fruitMenu">
-					<a href="recipe.php?fruitName=Apple" class="recipe-links" title="Apple Recipes">Apple Recipes</a><br />
-					<a href="recipe.php?fruitName=Apricot" class="recipe-links" title="Apricot Recipes">Apricot Recipes</a><br />
-					<a href="recipe.php?fruitName=Cherry" class="recipe-links" title="Cherry Recipes">Cherry Recipes</a><br />
-					<a href="recipe.php?fruitName=Crab Apple" class="recipe-links" title="Crab Apple Recipes">Crab Apple Recipes</a><br />
-					<a href="recipe.php?fruitName=Grape" class="recipe-links" title="Grape Recipes">Grape Recipes</a><br />
-					<a href="recipe.php?fruitName=Grapefruit" class="recipe-links" title="Grapefruit Recipes">Grapefruit Recipes</a><br />
-					<a href="recipe.php?fruitName=Kumquat" class="recipe-links" title="Kumquat Recipes">Kumquat Recipes</a><br />
-					<a href="recipe.php?fruitName=Lemon" class="recipe-links" title="Lemon Recipes">Lemon Recipes</a><br />
-					<a href="recipe.php?fruitName=Lime" class="recipe-links" title="Lime Recipes">Lime Recipes</a><br />
-					<a href="recipe.php?fruitName=Loquat" class="recipe-links" title="Loquat Recipes">Loquat Recipes</a><br />
-					<a href="recipe.php?fruitName=Mango" class="recipe-links" title="Mango Recipes">Mango Recipes</a><br />
-					<a href="recipe.php?fruitName=Mulberry" class="recipe-links" title="Mulberry Recipes">Mulberry Recipes</a><br />
-					<a href="recipe.php?fruitName=Orange" class="recipe-links" title="Orange Recipes">Orange Recipes</a><br />
-					<a href="recipe.php?fruitName=Pawpaw" class="recipe-links" title="Pawpaw Recipes">Pawpaw Recipes</a><br />
-					<a href="recipe.php?fruitName=Peach" class="recipe-links" title="Peach Recipes">Peach Recipes</a><br />
-					<a href="recipe.php?fruitName=Pear" class="recipe-links" title="Pear Recipes">Pear Recipes</a><br />
-					<a href="recipe.php?fruitName=Persimmon" class="recipe-links" title="Persimmon Recipes">Persimmon Recipes</a><br />
-					<a href="recipe.php?fruitName=Plum" class="recipe-links" title="Plum Recipes">Plum Recipes</a><br />
-					<a href="recipe.php?fruitName=Quince" class="recipe-links" title="Quince Recipes">Quince Recipes</a><br />
-					<a href="recipe.php?fruitName=Tangerine" class="recipe-links" title="Tangerine Recipes">Tangerine Recipes</a><br />
-					</nav>
-				</td>
 				<td class="bodyText" id="fruitTableStart">
 					<div class="hasRollover">
 					<a href="subindex.php?fruitName=Apple" rel="tooltip" title="Apple">
@@ -173,6 +152,30 @@ if($isMobile===1)
 					<div class="text-content" style="padding-top:76px;"><span>Crab Apple</span></div></a>
 				</div>
 				</td> 
+				<td rowspan="6" style="vertical-align: top;">
+					<nav id="fruitMenu">
+					<a href="recipe.php?fruitName=Apple" class="recipe-links" title="Apple Recipes">Apple Recipes</a><br />
+					<a href="recipe.php?fruitName=Apricot" class="recipe-links" title="Apricot Recipes">Apricot Recipes</a><br />
+					<a href="recipe.php?fruitName=Cherry" class="recipe-links" title="Cherry Recipes">Cherry Recipes</a><br />
+					<a href="recipe.php?fruitName=Crab Apple" class="recipe-links" title="Crab Apple Recipes">Crab Apple Recipes</a><br />
+					<a href="recipe.php?fruitName=Grape" class="recipe-links" title="Grape Recipes">Grape Recipes</a><br />
+					<a href="recipe.php?fruitName=Grapefruit" class="recipe-links" title="Grapefruit Recipes">Grapefruit Recipes</a><br />
+					<a href="recipe.php?fruitName=Kumquat" class="recipe-links" title="Kumquat Recipes">Kumquat Recipes</a><br />
+					<a href="recipe.php?fruitName=Lemon" class="recipe-links" title="Lemon Recipes">Lemon Recipes</a><br />
+					<a href="recipe.php?fruitName=Lime" class="recipe-links" title="Lime Recipes">Lime Recipes</a><br />
+					<a href="recipe.php?fruitName=Loquat" class="recipe-links" title="Loquat Recipes">Loquat Recipes</a><br />
+					<a href="recipe.php?fruitName=Mango" class="recipe-links" title="Mango Recipes">Mango Recipes</a><br />
+					<a href="recipe.php?fruitName=Mulberry" class="recipe-links" title="Mulberry Recipes">Mulberry Recipes</a><br />
+					<a href="recipe.php?fruitName=Orange" class="recipe-links" title="Orange Recipes">Orange Recipes</a><br />
+					<a href="recipe.php?fruitName=Pawpaw" class="recipe-links" title="Pawpaw Recipes">Pawpaw Recipes</a><br />
+					<a href="recipe.php?fruitName=Peach" class="recipe-links" title="Peach Recipes">Peach Recipes</a><br />
+					<a href="recipe.php?fruitName=Pear" class="recipe-links" title="Pear Recipes">Pear Recipes</a><br />
+					<a href="recipe.php?fruitName=Persimmon" class="recipe-links" title="Persimmon Recipes">Persimmon Recipes</a><br />
+					<a href="recipe.php?fruitName=Plum" class="recipe-links" title="Plum Recipes">Plum Recipes</a><br />
+					<a href="recipe.php?fruitName=Quince" class="recipe-links" title="Quince Recipes">Quince Recipes</a><br />
+					<a href="recipe.php?fruitName=Tangerine" class="recipe-links" title="Tangerine Recipes">Tangerine Recipes</a><br />
+					</nav>
+				</td>
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
@@ -301,6 +304,10 @@ echo '<tr>
 			<th colspan="2" style="width:1px; height:10px; border:0px; padding:35px;">
 				<img src="images/ISS_logo_cmyk.png" id="issLogo" style="width: auto; height: auto; max-width: 266px; max-height: 133px;"/>
 			</th>
-		</tr>';
+		</tr>
+		</table>
+	</div>
+</div>';
 ?>
 </body>
+</html>

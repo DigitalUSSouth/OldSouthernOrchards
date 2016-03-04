@@ -1,7 +1,7 @@
+@charset "UTF-8";
+
 body 
 {
-	/*background-image: url(images/bgtile.jpg);
-	background-repeat: repeat-x;*/
 	background-color: #a09b90;
 	margin: 20px 0 0 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -9,18 +9,41 @@ body
 
 #content 
 {
-	/*background-image: url(images/sidebarbackground.jpg);
-	background-repeat: repeat-y;*/
+	background-image: url(../images/ososidebarbg.png);
+	background-repeat: repeat-y;
+	background-position: left;
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 10px;
+	padding-left: 255px;
+}
+
+#subcontent 
+{
+	background-image: url(../images/ososidebarbg.png);
+	background-repeat: repeat-y;
+	background-position: left;
+	background-color: #fff;
+	border-bottom: 2px #fff solid;
+	border-left: 0px;
+	padding-left: 225px;
+}
+
+#subsubcontent 
+{
+	background-image:url(../images/ososidebarbg.png);
+	background-repeat:repeat-y;
+	background-position:left;
+	background-color:#fff;
+	border-bottom:2px #fff solid;
+	border-left:0px;
+	padding-left:225px;
 }
 
 #container 
 {
 	margin: 0 auto;
-	width: 1004px;
+	width: 1200px;
 	height: 100%;
 }
 
@@ -33,9 +56,9 @@ body
 
 h2 
 {
-	font-size: 18px;
-	font-weight: 200;
-	color: #a00c0a;
+	font-weight:200;
+	color:#dd2e03;
+	font-size:16pt;
 }
 
 section
@@ -63,13 +86,13 @@ article
 	font-size:10pt;
 	margin:0;
 	border:0;
-	padding:0;
+	padding-left:35px;
 }
 
 #fruitMenu a
 {
 	text-decoration:none;
-	color:#a00c0a;
+	color:#dd2e03;
 }
 
 table
@@ -95,7 +118,7 @@ a.nav
 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #fff;
+	color: #a83e0b;
 	text-decoration: none;
 }
 
@@ -110,9 +133,11 @@ a.nav:hover
 /*Name of fruit at top of subindex page */
 #fruitHeader
 {
-	font: normal 24pt "Times New Roman", serif; 
-	text-align:center;
+	font: normal 16pt Arial, Helvetica, sans-serif; 
+	text-align:left;
 	background-color:white;
+	color:#dd2e03;
+	padding-top:15px;
 }
 
 div.hasRollover

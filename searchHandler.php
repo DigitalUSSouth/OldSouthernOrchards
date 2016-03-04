@@ -1,5 +1,6 @@
 <?php
 define('OSO_DB', true);
+define('EMBEDDED',true);
 function trim_result($needle, $haystack)
 {
 	$pos = strpos($haystack, $needle);
@@ -14,13 +15,34 @@ function trim_result($needle, $haystack)
 <html lang="en">
 <head>
 <title>Old Southern Orchards</title>
+<?php
+$isMobile=0;
+if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
+{
+      echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
+}
+else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
+{
+	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
+	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
+	echo '<script type="text/javascript" src="scripts/bootstrap.js"></script>';
+	$isMobile=1;
+}
+else
+{
+	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
+}
+?>
 <style>
-img { width:89px; height:178px;}
+/*img { width:89px; height:178px;}*/
 </style>
 </head>
 <body>
 <?php
 header("Content-type: text/html; charset=utf-8");
+echo '<div id="container">';
+require('navBar.php');
+echo '<div id="content">';
 $isValid = preg_match("/^[a-zA-Z]+/", $_GET['searchTerm']);
 if($isValid===FALSE) 
 	die ('<p>An unexpected error has occured. Unable to complete your request.</p>');
@@ -68,12 +90,12 @@ else if($type==3)	// search all
 	$allresults .= search_fruits();
 	$allresults .=search_recipes();
 }
-echo "<p>Search Results (".$numresults.") for '".$term."'</p>";
+echo "<span>Search Results (".$numresults.") for '".$term."'</span>";
 echo $allresults;
 $numresults=0;
 echo 'Not what you were looking for? <a href="search.php">Search again</a>';
 $query->close();
-
+echo '</div></div></body></html>';
 function search_fruits()
 {
 	$sql = "SELECT name, fruitname, description, display FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";

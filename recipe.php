@@ -81,7 +81,7 @@ if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SES
 });</script>';
 }
  // end tinymce editor
-
+echo '<div id="content">';
 //connect to the database
 $host = "localhost";
 $username = getUserName();
@@ -128,7 +128,7 @@ if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SES
 	echo '<input type="button" value="Return to index page" onClick="window.location.href=\'index.php\';">';
 }
 echo '</form>';
-echo '</div>';
+echo '</div></div>';
 //close connection with database
 $query->close();
 $con2->close();
