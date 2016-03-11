@@ -31,13 +31,13 @@ body
 
 #subsubcontent 
 {
-	background-image:url(../images/ososidebarbg.png);
+	/*background-image:url(../images/ososidebarbg.png);
 	background-repeat:repeat-y;
-	background-position:left;
+	background-position:left;*/
 	background-color:#fff;
 	border-bottom:2px #fff solid;
 	border-left:0px;
-	padding-left:225px;
+	/*padding-left:225px;*/
 }
 
 #container 
@@ -95,6 +95,11 @@ article
 	color:#dd2e03;
 }
 
+#fruitMenu a:hover
+{
+	text-decoration:underline;
+}
+
 table
 {
 	border-spacing: 0px;
@@ -138,6 +143,13 @@ a.nav:hover
 	background-color:white;
 	color:#dd2e03;
 	padding-top:15px;
+}
+
+.search_style
+{
+	font-weight:200;
+	color:#dd2e03;
+	font-size:22pt;
 }
 
 div.hasRollover

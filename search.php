@@ -32,8 +32,8 @@ echo '<div id="content"><br />';
 	echo '<h2>Old Southern Orchards</h2>
 			<table>
 				<tr>
-					<td class="pageName">
-						Search';
+					<td>
+						<span class="search_style">Search</span>';
 	echo 			'</td>
 				</tr>
 			</table>';

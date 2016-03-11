@@ -4,10 +4,15 @@ define('EMBEDDED',true);
 function trim_result($needle, $haystack)
 {
 	$pos = strpos($haystack, $needle);
+	if($pos===FALSE)
+		return 0;
 	$start = (($pos - 50) >= 0) ? $pos - 50 : 0;
 	$result = substr($haystack, $start, 100);
+	$result = substr($result, strpos($result,">")+1, 100);
+	#$result = substr($result, 0, strpos($result,"<")-1);
 	$rep = '<mark>' . $needle . '</mark>';
 	$result = str_ireplace($needle, $rep , $result);
+	$result = '<span style="font-size:9pt;">'.$result.'</span>';
 	return $result;
 }
 ?>
@@ -34,7 +39,11 @@ else
 }
 ?>
 <style>
-/*img { width:89px; height:178px;}*/
+body {color:black;font-size:12pt;}
+a {text-decoration:none;font-size:14pt;color:#dd2e03;}
+a:hover {text-decoration:underline;}
+.fruit_label {font-size:16pt;padding-left:20px;}
+.recipe_label {font-size:16pt;padding-left:20px;}
 </style>
 </head>
 <body>
@@ -88,29 +97,32 @@ else if($type==2)	// search recipes
 else if($type==3)	// search all
 {
 	$allresults .= search_fruits();
-	$allresults .=search_recipes();
+	$allresults .= search_recipes();
 }
-echo "<span>Search Results (".$numresults.") for '".$term."'</span>";
+echo '<br><span style="color:#dd2e03;font-size:16pt;">Old Southern Orchards</span><br>';
+echo '<br><span class="search_style">Search Results ('.$numresults.') for \''.$term.'\'</span><br><br>';
 echo $allresults;
 $numresults=0;
-echo 'Not what you were looking for? <a href="search.php">Search again</a>';
+echo '<br><span>Not what you were looking for? </span><a href="search.php">Search again</a>';
 $query->close();
 echo '</div></div></body></html>';
 function search_fruits()
 {
-	$sql = "SELECT name, fruitname, description, display FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";
+	$sql = "SELECT name, fruitname, description, thumbname, display FROM sub_orc_data WHERE fruitname LIKE '%".$GLOBALS['term']."%'";
 	$query = $GLOBALS['con2']->prepare($sql);
 	$query->execute();
 	$query->store_result();
-	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description'], $GLOBALS['display']);
+	$query->bind_result($GLOBALS['name'], $GLOBALS['fruitname'], $GLOBALS['description'], $GLOBALS['thumbname'], $GLOBALS['display']);
 	while ($query->fetch())
 	{
 		if($GLOBALS['display']==0)
 			continue;
 		$GLOBALS['numresults']++;
-		$results .= '<p style="clear:both">Fruit <a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
-		#$results .= htmlspecialchars_decode($GLOBALS['description']);
-		$results .= '</p>';
+		$results .= '<table><tr><td><img src="images/subimages/'.$GLOBALS['fruitname'].'/'.$GLOBALS['thumbname'].'" id="'.$GLOBALS['name'].'" 
+			alt="'.$GLOBALS['name'].'" style="width:100px;height:100px;"></td>';
+		$results .= '<td><span class="fruit_label">Fruit </span>
+			<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
+		$results .= '</td></tr></table>';
 	}
 	$sql = "SELECT name, fruitname, description, display FROM sub_orc_data WHERE description LIKE '%".$GLOBALS['term']."%'";
 	$query = $GLOBALS['con2']->prepare($sql);
@@ -122,8 +134,16 @@ function search_fruits()
 		if($GLOBALS['display']==0)
 			continue;
 		$GLOBALS['numresults']++;
-		$results .= '<p style="clear:both">Fruit <a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a><br>';
-		$results .= trim_result($GLOBALS['term'], htmlspecialchars_decode($GLOBALS['description']));
+		$desc = substr($GLOBALS['description'], strpos($GLOBALS['description'],"/>")+1);
+		$trimmed = trim_result($GLOBALS['term'], htmlspecialchars_decode($desc));
+		if($trimmed===0)
+		{
+			$GLOBALS['numresults']--;
+			continue;
+		}
+		$results .= '<p style="clear:both"><span class="fruit_label">Fruit </span>
+		<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a><br>';
+		$results .= $trimmed;
 		$results .= '</p>';
 	}
 	return $results;
@@ -139,9 +159,10 @@ function search_recipes()
 	while ($query->fetch())
 	{
 		$GLOBALS['numresults']++;
-		$results .= '<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].' Recipes</a><br>';
-		$results .= htmlspecialchars_decode($GLOBALS['content']);
-		$results .= '<br>';
+		$results .= '<span class="recipe_label">Recipes </span>
+				<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a><br>';
+		$results .= trim_result($GLOBALS['term'], htmlspecialchars_decode($GLOBALS['content']));
+		$results .= '<br><br>';
 	}
 	return $results;
 }
