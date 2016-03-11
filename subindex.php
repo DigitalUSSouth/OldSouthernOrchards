@@ -176,8 +176,8 @@ $query->execute();
 $query->store_result();
 $query->bind_result($fileName, $name, $thumbName, $disp, $ro);
 $rowcount = 0;
-echo '<table style="margin-left:auto; margin-right:auto;">';
-echo '<caption id="fruitHeader">'.$fruitName.'</caption><tbody><tr>';
+echo '<table style="padding-left:32px;">';
+echo '<caption id="fruitHeader">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fruitName.'</caption><tbody><tr>';
 while ($query->fetch())
 {
 	if($disp==0)

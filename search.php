@@ -29,7 +29,7 @@ else
 echo '<div id="container">';
 require('navBar.php');
 echo '<div id="content"><br />';
-	echo '<h2>Old Southern Orchards</h2>
+	echo '<h2>Orchards</h2>
 			<table>
 				<tr>
 					<td>

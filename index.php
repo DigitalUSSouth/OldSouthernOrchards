@@ -117,8 +117,8 @@ if($isMobile===1)
  echo '<div id="container">';
  require('navBar.php');
  echo '<div id="content">
-		<table id="orchardTable">
-			<caption style="text-align:left;padding-top:15px;"><span style="color:#dd2e03;font-size:16pt;">Orchard </span>
+		<table id="orchardTable" style="padding-left:10px;">
+			<caption style="text-align:left;padding-top:15px;"><span style="color:#dd2e03;font-size:16pt;">&nbsp;&nbsp;Orchard </span>
 						<span class="subtitle" style="font-size:12pt;color:#646b47;font-family;font-family:Times New Roman,serif;">
 						So many awesome fruits from the orchard. Sweet.
 						</span>
