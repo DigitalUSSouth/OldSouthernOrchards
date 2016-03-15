@@ -148,17 +148,39 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<input type="submit" />';
 	echo '<input type="reset" />';
-	$previous = 'http://lichen.csd.sc.edu/oldsouthernorchards/subindex.php?fruitName='.$fruitType;
-	echo '<input type="button" value="Return to subindex page" onClick="window.location.href=\''.$previous.'\'">';
-	# add next image button
-	/*$query = $con2->prepare("SELECT MIN(name) FROM sub_orc_data where name > ? and fruitname = ?");
+	# add button to subindex page
+	$subind = 'http://lichen.csd.sc.edu/oldsouthernorchards/subindex.php?fruitName='.$fruitType;
+	echo '<input type="button" value="Return to subindex page" onClick="window.location.href=\''.$subind.'\'">';
+	# add previous image button
+	$query = $con2->prepare("SELECT MAX(name) FROM sub_orc_data WHERE name < ? AND fruitname = ? AND display = 1");
 	$query->bind_param('ss', $fruitName, $fruitType);
 	$query->execute();
 	$query->store_result();
-	$query->bind_result($nxname);
-	//if($nxname)
-		echo '<input type="button" value="Next fruit" 
-				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$nxname.'">';*/
+	$query->bind_result($pnname);
+	while($query->fetch())
+	{
+		if($pnname)
+		{
+			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
+			echo '<input type="button" value="Previous fruit" 
+				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'">';
+		}
+	}
+	# add next image button
+	$query = $con2->prepare("SELECT MIN(name) FROM sub_orc_data WHERE name > ? AND fruitname = ? AND display = 1");
+	$query->bind_param('ss', $fruitName, $fruitType);
+	$query->execute();
+	$query->store_result();
+	$query->bind_result($pnname);
+	while($query->fetch())
+	{
+		if($pnname)
+		{
+			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
+			echo '<input type="button" value="Next fruit" 
+				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'">';
+		}
+	}
 }
 echo '</form>';
 echo '</div></div>';
