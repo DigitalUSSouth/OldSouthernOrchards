@@ -153,6 +153,41 @@ a.nav:hover
 	color:#dd2e03;
 	font-size:22pt;
 }
+/* For about.php */
+.tab-box 
+{ 
+  border-bottom: 1px solid #DDD;
+  padding-bottom:5px;
+}
+
+.tab-box a 
+{
+  border:1px solid #DDD;
+  padding: 5px 15px;
+  text-decoration:none;
+  font-weight:bold;
+  background-color:rgba(100,107,71,0.3);
+}
+
+.tab-box a.activeLink 
+{ 
+  background-color: #fff; 
+  border-bottom: 0; 
+  padding: 6px 15px;
+}
+
+.tabcontent 
+{ 
+	border: 0px solid #ddd; 
+	border-top: 0; 
+	padding: 0px; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.hide { display: none;}
+
+/* For rollover on index and subindex pages */
 
 div.hasRollover
 {

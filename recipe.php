@@ -41,6 +41,7 @@ if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SES
 {
 	echo '<script type="text/javascript">
 	tinymce.init({
+	forced_root_block : false,
 	fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 24pt 36pt",
 	font_formats: "Agency FB=agency fb,sans-serif;"+
 				"Andale Mono=andale mono,times;"+

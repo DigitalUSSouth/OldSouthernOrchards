@@ -10,6 +10,7 @@ function trim_result($needle, $haystack, $isRecipe)
 	{
 		$start = (($pos - 50) >= 0) ? $pos - 50 : 0;
 		$temp = substr($haystack, $start, 100);
+		#$temp = strip_tags($temp);
 		$temp = substr($temp, strpos($temp,">")+1, 100);
 		#$result = substr($temp, 0, strpos($temp,"<")-1);
 		$pos = stripos($haystack, $needle, $pos+1);
@@ -189,8 +190,6 @@ function search_recipes()
 	while ($query->fetch())
 	{
 		$GLOBALS['numresults']++;
-		$results .= '<span class="recipe_label">Recipes </span>
-				<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a><br>';
 		$results .= trim_result($GLOBALS['term'], htmlspecialchars_decode($GLOBALS['content']),TRUE);
 		$results .= '<br>';
 	}
