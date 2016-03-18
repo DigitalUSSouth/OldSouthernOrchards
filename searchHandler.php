@@ -6,18 +6,26 @@ function trim_result($needle, $haystack, $isRecipe)
 	$pos = stripos($haystack, $needle);
 	if($pos===FALSE)
 		return 0;
+	$skip = 0;
 	while($pos!==FALSE)
 	{
 		$start = (($pos - 50) >= 0) ? $pos - 50 : 0;
 		$temp = substr($haystack, $start, 100);
-		#$temp = strip_tags($temp);
+		$temp = strip_tags($temp);
 		$temp = substr($temp, strpos($temp,">")+1, 100);
-		#$result = substr($temp, 0, strpos($temp,"<")-1);
 		$pos = stripos($haystack, $needle, $pos+1);
 		if(stripos($temp,$needle)===FALSE)
 			continue;
-		$rep = '<mark>' . $needle . '</mark>';
-		$temp = str_ireplace($needle, $rep , $temp);
+		if($skip > 1)
+		{
+			$skip--;
+			$GLOBALS['numresults']++;
+			continue;
+		}
+		#$result = substr($temp, 0, strpos($temp,"<")-1);
+		#$rep = '<mark>'.$needle.'</mark>';
+		#$temp = str_ireplace($needle, $rep , $temp);
+		$temp = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $temp, -1, $skip);	// highlight search terms
 		if(!$isRecipe)
 		{
 			$result .= '<span style="font-size:9pt;"><p style="clear:both"><span class="fruit_label">Fruit </span>
@@ -189,9 +197,8 @@ function search_recipes()
 	$query->bind_result($GLOBALS['fruit'], $GLOBALS['content']);
 	while ($query->fetch())
 	{
-		$GLOBALS['numresults']++;
 		$results .= trim_result($GLOBALS['term'], htmlspecialchars_decode($GLOBALS['content']),TRUE);
-		$results .= '<br>';
+		#$results .= '<br>';
 	}
 	return $results;
 }

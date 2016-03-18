@@ -1,66 +1,22 @@
 <!--This file is the equivalent of scratch paper-->
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+/*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
 	foreach($_POST as $x)
 	{
 		echo htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
 	}
 }
-?>
-<!--<!DOCTYPE html>
+*/?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Old Southern Orchards</title>
-<style>
-#TOOLTIP
-{
-    text-align: center;
-    color: #fff;
-    background: #f00;
-    position: absolute;
-    z-index: 100;
-    padding: 15px;
-	font-size: 50px;
-}
- 
-#TOOLTIP:after /* triangle decoration */
-{
-	width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid #111;
-	content: '';
-	position: absolute;
-	left: 50%;
-	bottom: -10px;
-	margin-left: -10px;
-}
-
-#TOOLTIP.top:after
-{
-	border-top-color: transparent;
-	border-bottom: 10px solid #111;
-	top: -20px;
-	bottom: auto;
-}
-
-#TOOLTIP.left:after
-{
-	left: 10px;
-	margin: 0;
-}
-
-#TOOLTIP.right:after
-{
-	right: 10px;
-	left: auto;
-	margin: 0;
-}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.js"></script>
 <script type="text/javascript">
 $( function()
 {
@@ -141,11 +97,21 @@ $( function()
 </script>
 </head>
 <body>
-<table>
-	<tr>
-		<td><a href="http://www.google.com" title="User Experience" rel="TOOLTIP">Click Me</a></td>
-		<td><p title="Here is some text" rel="TOOLTIP">Here is some text</p></td>
-	</tr>
-</table>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-4">
+		<a href="subindex.php?fruitName=Apple" rel="tooltip" title="Apple">
+		<img src="images/Apple-CarolinaBeauty-thumb.png" id="Apple-CarolinaBeauty-Image" />
+
+		<a href="subindex.php?fruitName=Apricot" rel="tooltip" title="Apricot">
+					<img src="images/Apricot-Stanford-thumb.png" id="Apricot-Stanford-Image" />
+	
+	<a href="subindex.php?fruitName=Cherry" rel="tooltip" title="Cherry">
+					<img src="images/Cherry-Bigarreau-thumb.png" id="Cherry-Bigarreau-Image" />
+
+		<a href="subindex.php?fruitName=Crab Apple" rel="tooltip" title="Crab Apple">
+					<img src="images/CrabApple-Hewes-thumb.png" id="CrabApple-Hewes-Image" />
+</div>
+</div>
 </body>
-</html>-->
+</html>
