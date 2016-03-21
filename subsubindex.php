@@ -126,13 +126,10 @@ echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
 echo '<section style="background-color:white;padding-left:27px;" id="spacer">';
 while ($query->fetch())
 {
+		$fruitName = preg_replace("/\s\d$/", sprintf(''), $fruitName);	# if fruit image name end with number, get rid of it
 		$pieces = explode(" ", $fruitName);
 		$fruitType = array_pop($pieces);
-		if(is_numeric($fruitType))
-		{
-			$fruitType = array_pop($pieces);
-		}
-		else if ($fruitType==='Apple')
+		if ($fruitType==='Apple')
 		{
 			$isCrab = array_pop($pieces);
 			if($isCrab==='Crab')

@@ -26,6 +26,7 @@ function trim_result($needle, $haystack, $isRecipe)
 		#$rep = '<mark>'.$needle.'</mark>';
 		#$temp = str_ireplace($needle, $rep , $temp);
 		$temp = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $temp, -1, $skip);	// highlight search terms
+		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		if(!$isRecipe)
 		{
 			$result .= '<span style="font-size:9pt;"><p style="clear:both"><span class="fruit_label">Fruit </span>
@@ -148,6 +149,7 @@ function search_fruits()
 		if($GLOBALS['display']==0)
 			continue;
 		$GLOBALS['numresults']++;
+		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		$results .= '<table><tr><td><img src="images/subimages/'.$GLOBALS['fruitname'].'/'.$GLOBALS['thumbname'].'" id="'.$GLOBALS['name'].'" 
 			alt="'.$GLOBALS['name'].'" style="width:100px;height:100px;"></td>';
 		$results .= '<td><span class="fruit_label">Fruit </span>
