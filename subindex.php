@@ -28,16 +28,19 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
 	echo '<script type="text/javascript" src="scripts/bootstrap.js"></script>';
 	$isMobile = 1;
+	$isFirefox = 0;
 }
 else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
      echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 	 $isMobile = 0;
+	 $isFirefox = 1;
 }
 else
 {
 	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
 	$isMobile = 0;
+	$isFirefox = 0;
 }
 
 if($isMobile===1)
@@ -177,12 +180,15 @@ $query->store_result();
 $query->bind_result($fileName, $name, $thumbName, $disp, $ro);
 $rowcount = 0;
 echo '<table style="padding-left:32px;">';
-echo '<caption id="fruitHeader">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fruitName.'</caption><tbody><tr>';
+echo '<caption id="fruitHeader">&nbsp;';
+if(!$isFirefox)
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo $fruitName.'</caption><tbody><tr>';
 while ($query->fetch())
 {
 	if($disp==0)
 		continue;
-	if($rowcount % 5 == 0 && $rowcount != 0)
+	if($rowcount % 4 == 0 && $rowcount != 0)
 		echo '</td><tr>';
 		echo '<td><div class="hasRollover">';
 		#if(!$isMobile)	# if page is view on desktop, add hidden tooltip information

@@ -15,7 +15,7 @@ body
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 255px;
+	padding-left: 241px;
 }
 
 #subcontent 
@@ -26,7 +26,7 @@ body
 	background-color: #fff;
 	border-bottom: 2px #fff solid;
 	border-left: 0px;
-	padding-left: 225px;
+	padding-left: 208px;
 }
 
 #subsubcontent 
@@ -35,13 +35,14 @@ body
 	background-color:#fff;
 	border-bottom:2px #fff solid;
 	border-left:0px;
+	padding-right:20px;
 	/*padding-left:225px;*/
 }
 
 #container 
 {
 	margin: 0 auto;
-	width: 1200px;
+	width: 1000px;
 	height: 100%;
 	padding-right:0;
 }
@@ -145,6 +146,7 @@ a.nav:hover
 	background-color:white;
 	color:#dd2e03;
 	padding-top:15px;
+	padding-bottom:10px;
 }
 
 .search_style

@@ -35,7 +35,7 @@ header("Content-type: text/html; charset=utf-8");
  require('navBar.php');
  require('db_info.php');
  // tinymce editor
-if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
+if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 {
 	echo '<script type="text/javascript">
 	tinymce.init({
@@ -76,7 +76,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
         "searchreplace wordcount visualchars visualblocks code fullscreen",
         "insertdatetime nonbreaking media table contextmenu paste textcolor colorpicker textpattern imagetools"
     ],
-    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code"
+    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | fontselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 });</script>';
 }
 // end tinymce editor

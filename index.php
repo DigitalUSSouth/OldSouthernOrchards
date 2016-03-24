@@ -16,6 +16,8 @@ $isMobile=0;
 if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
       echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
+	  $isFirefox=1;
+	  $isMobile=0;
 }
 else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
 {
@@ -23,10 +25,13 @@ else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
 	echo '<script type="text/javascript" src="scripts/bootstrap.js"></script>';
 	$isMobile=1;
+	$isFirefox=0;
 }
 else
 {
 	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
+	$isMobile=0;
+	$isFirefox=0;
 }
 if($isMobile===1)
 	echo '<script type="text/javascript"> //for mobile tooltops
@@ -118,10 +123,11 @@ if($isMobile===1)
  require('navBar.php');
  echo '<div id="content">
 		<table id="orchardTable" style="padding-left:10px;">
-			<caption style="text-align:left;padding-top:15px;"><span style="color:#dd2e03;font-size:16pt;">&nbsp;&nbsp;Orchard </span>
-						<span class="subtitle" style="font-size:12pt;color:#646b47;font-family;font-family:Times New Roman,serif;">
-						So many awesome fruits from the orchard. Sweet.
-						</span>
+			<caption style="text-align:left;padding-top:15px;padding-bottom:10px;">
+			<span style="color:#dd2e03;font-size:16pt;">&nbsp;&nbsp;Orchard </span>
+					<span class="subtitle" style="font-size:12pt;color:#646b47;font-family;font-family:Times New Roman,serif;">
+						A guide to the most important fruit grown in southern orchards prior to 1920.
+					</span>
 			</caption>';
  echo    '<tr>
 				<td class="bodyText" id="fruitTableStart">
@@ -152,7 +158,7 @@ if($isMobile===1)
 					<div class="text-content" style="padding-top:76px;"><span>Crab Apple</span></div></a>
 				</div>
 				</td> 
-				<td rowspan="6" style="vertical-align: top;">
+				<!--<td rowspan="6" style="vertical-align: top;">
 					<nav id="fruitMenu">
 					<a href="recipe.php?fruitName=Apple" class="recipe-links" title="Apple Recipes">Apple Recipes</a><br />
 					<a href="recipe.php?fruitName=Apricot" class="recipe-links" title="Apricot Recipes">Apricot Recipes</a><br />
@@ -175,7 +181,7 @@ if($isMobile===1)
 					<a href="recipe.php?fruitName=Quince" class="recipe-links" title="Quince Recipes">Quince Recipes</a><br />
 					<a href="recipe.php?fruitName=Tangerine" class="recipe-links" title="Tangerine Recipes">Tangerine Recipes</a><br />
 					</nav>
-				</td>
+				</td>-->
 		</tr>';
 echo '<tr>
 				<td class="bodyText">
