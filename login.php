@@ -37,7 +37,7 @@ else
 echo '<div id="container">';
 require('navBar.php');
 echo '<div id="content"><br />
-	<h2>Orchards</h2>';
+	<h2>Orchard</h2>';
 echo '<table>
 		<tr>
 			<td class="bodyText" style="padding-top:0; padding-left: 0;">Log In</td>

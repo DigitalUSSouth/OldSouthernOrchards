@@ -12,6 +12,12 @@ function extractFruitName($name, $fruitName)
 	}
 	return $result;
 }
+function make_nbsp($num)
+{
+	for($x=0;$x<$num;$x++)
+		$spaces .= '&nbsp;';
+	return $spaces;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,31 +187,43 @@ $query->bind_result($fileName, $name, $thumbName, $disp, $ro);
 $rowcount = 0;
 echo '<table style="padding-left:32px;">';
 echo '<caption id="fruitHeader">&nbsp;';
-if(!$isFirefox)
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo $fruitName.'</caption><tbody><tr>';
+if(!$isFirefox)	#for non_Firefox browser, extra spaces need to align header along left side of images
+	echo make_nbsp(5);
+echo $fruitName;
+if(!$isMobile)
+{
+	if($fruitName=='Kumquat')	# calculate needed spaces to align recipe link
+		echo make_nbsp(60 - strlen($fruitName));
+	else if($fruitName=='Crab Apple' || $fruitName=='Tangerine')
+		echo make_nbsp(90 - strlen($fruitName));
+	else if($fruitName=='Persimmon')
+		echo make_nbsp(88 - strlen($fruitName));
+	else
+		echo make_nbsp(93 - strlen($fruitName));
+}
+else
+	echo make_nbsp(10);
+echo '<a href="recipe.php?fruitName='.$fruitName.'" style="text-decoration:none;font-size:11pt;color:#646b47;">View Recipes</a></caption><tbody><tr>';
 while ($query->fetch())
 {
-	if($disp==0)
+	if($disp==0)	# if this image is not meant to be displayed on the site for whatever reason, skip it.
 		continue;
-	if($rowcount % 4 == 0 && $rowcount != 0)
+	if($rowcount % 4 == 0 && $rowcount != 0)	# new row every 4 images
 		echo '</td><tr>';
-		echo '<td><div class="hasRollover">';
-		#if(!$isMobile)	# if page is view on desktop, add hidden tooltip information
-			#echo '<span class="tooltip">'.$ttip.'</span>';
-		echo '<a href="subsubindex.php?name='.$name.'"';
-		if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
-			echo ' title="'.extractFruitName($name,$fruitName).'" rel="tooltip" >';
+	echo '<td><div class="hasRollover">';
+	echo '<a href="subsubindex.php?name='.$name.'"';
+	if($isMobile)	# if page is view in mobile phone, add title and rel attributes to link
+		echo ' title="'.extractFruitName($name,$fruitName).'" rel="tooltip" >';
+	else
+		echo '>';
+		echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
+		echo '<div class="text-content" style="padding-top:'.$ro.'px;';	# add rollover text
+		if($ro==63)	# if rollover text takes up two lines, adjust div height so that rollover text remains centered.
+			echo ' height:117px;">';
 		else
-			echo '>';
-			echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
-			echo '<div class="text-content" style="padding-top:'.$ro.'px;';
-			if($ro==63)
-				echo ' height:117px;">';
-			else
-				echo '">';
-			echo '<span>'.extractFruitName($name,$fruitName).'</span></div>';
-		echo '</a></div></td>';
+			echo '">';
+		echo '<span>'.extractFruitName($name,$fruitName).'</span></div>';
+	echo '</a></div></td>';
 	$rowcount++;
 }
 echo '</tr></tbody></table></div></div>';

@@ -14,11 +14,6 @@ echo '   <img src="images/titleimage.png" style="padding-left: 15px;" />
             <a class="nav" href="search.php">SEARCH</a>&nbsp;&nbsp;&nbsp;&nbsp;
            ';
 
-if ((isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1') && (isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1'))
-{
-   #echo '<a class="nav" href="updateOrchard.php">UPDATE ORCHARD</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-   
-}
 if (!isset($_SESSION['ISLOGGEDIN']) || $_SESSION['ISLOGGEDIN']=='0')
 {
    echo '<a class="nav" href="login.php">LOG IN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';

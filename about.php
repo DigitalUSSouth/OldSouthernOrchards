@@ -49,7 +49,6 @@ a {
     });  
   });
 </script>
-
 <script type="text/javascript">
 function MM_setTextOfLayer(objId,x,newText) { //v9.0
   with (document) if (getElementById && ((obj=getElementById(objId))!=null))
@@ -82,6 +81,11 @@ function placeIt(obj)
 	obj.style.left = theLeft + 'px' ;
 	obj.style.top = theTop + 'px' ;
 }
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("p:empty").remove();
+});
 </script>
 </head>
 <body>

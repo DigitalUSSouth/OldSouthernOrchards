@@ -28,7 +28,7 @@ else
 }
 ?>
 </head>
-<body onLoad="calcHeight();">
+<body onLoad="calcHeight('subsubcontent');"><!--calcHeight() used to make sure subsubcontent goes down to bottom of page-->
 <?php
 header("Content-type: text/html; charset=utf-8");
  echo '<div id="container">';
@@ -122,12 +122,11 @@ $query->execute();
 $query->store_result();
 $query->bind_result($fileName, $desc);
 echo '<form method="post" action="subsubindexUpdater.php?name='.$fruitName.'">';
-#echo '<form method="post" action="test.php">';
 echo '<section style="background-color:white;padding-left:27px;" id="spacer">';
 while ($query->fetch())
 {
-		$fruitName = preg_replace("/\s\d$/", sprintf(''), $fruitName);	# if fruit image name end with number, get rid of it
-		$pieces = explode(" ", $fruitName);
+		$fruitName = preg_replace("/\s\d$/", sprintf(''), $fruitName);	# if fruit image name end with number, get rid of it.
+		$pieces = explode(" ", $fruitName);	# the following code is used to extract type of fruit (for example, Lime) from variety name (ex. Key Lime).
 		$fruitType = array_pop($pieces);
 		if ($fruitType==='Apple')
 		{
@@ -135,7 +134,7 @@ while ($query->fetch())
 			if($isCrab==='Crab')
 				$fruitType = 'Crab Apple';
 		}
-		if(strstr($desc, 'img')===FALSE)
+		if(strstr($desc, 'img')===FALSE)	# if web content retrieved from database doesn't have the fruit image, add it.
 			echo '<img src="images/subimages/'.$fruitType.'/'.$fileName.'" alt="'.$fruitName.'" id="'.$fruitName.'" draggable="false" style="max-width:340px;max-height:612px;padding-right:25px;display:inline;float:left;" />';
 	echo htmlspecialchars_decode($desc, ENT_QUOTES | ENT_HTML5);
 }

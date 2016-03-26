@@ -38,30 +38,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$count = 0;
 	foreach($_POST as $x)
 	{
-		if(count==0)
+		$content = htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5);
+		if($count == 0)
 		{
-			$asql = "UPDATE about_site SET content = '".htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5)."' WHERE title = 'About'";
-			count++;
+			$asql = "UPDATE about_site SET content = '".$content."' WHERE title = 'About'";
+			$count++;
 		}
 		else
-			$csql = "UPDATE about_site SET content = '".htmlspecialchars(stripslashes($x), ENT_QUOTES | ENT_HTML5)."' WHERE title = 'Contributors'";
+		{
+			$csql = "UPDATE about_site SET content = '".$content."' WHERE title = 'Contributors'";
+		}
+			
 	}
 	if ($con2->query($asql) === TRUE) 
 	{
-		echo "\'About\' Record updated successfully";
+		echo "'About' Record updated successfully.";
+		echo '<br>';
 	} 
 	else 
 	{
-		echo "Error updating \'About\' record: " . $con2->error . '\n';
+		echo "Error updating 'About' record: " . $con2->error . '\n';
+		echo '<br>';
 		echo $asql;
 	}
 	if ($con2->query($csql) === TRUE) 
 	{
-		echo "\'Contributors\' Record updated successfully";
+		echo "'Contributors' Record updated successfully.";
+		echo '<br>';
 	} 
 	else 
 	{
-		echo "Error updating \'Contributors\' record: " . $con2->error . '\n';
+		echo "Error updating 'Contributors' record: " . $con2->error . '\n';
+		echo '<br>';
 		echo $csql;
 	}
 	# create link to return to subsubindex.php

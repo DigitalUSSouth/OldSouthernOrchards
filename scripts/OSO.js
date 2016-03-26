@@ -1,7 +1,7 @@
 // JavaScript functions to be used on OldSouthernOrchards web site
-function calcHeight()
+function calcHeight(subject)
 {
-	var td = document.getElementById("spacer");	// get element to be displayed down to the bottom of the window
+	var td = document.getElementById(subject);	// get element to be displayed down to the bottom of the window
 	if(td==null || td==undefined)
 		return;
 	var rect = td.getBoundingClientRect();	// to find the distance from the top of the element to the top of the window

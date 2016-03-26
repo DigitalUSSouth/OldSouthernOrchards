@@ -9,6 +9,8 @@ define('OSO_DB', true);
 <title>Old Southern Orchards</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A guide to the most important fruit grown in southern orchards prior to 1920">
+<meta name="keywords" content="old southern orchards, Southern orchards, David Shields, University of South Carolina, USC, fruit, Southern fruit">
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <?php

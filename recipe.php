@@ -31,11 +31,10 @@ else
 <body>
 <?php
 header("Content-type: text/html; charset=utf-8");
- echo '<div id="container" style="background-color:white;">';
+ echo '<div id="container">';
  require('navBar.php');
  require('db_info.php');
 $fruitName = $_GET['fruitName'];
-
 // tinymce editor
 if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 {
@@ -114,7 +113,6 @@ $query->execute();
 $query->store_result();
 $query->bind_result($content);
 
-#echo '<form method="post" action="test.php">';
 echo '<form method="post" action="recipeUpdater.php?name='.$fruitName.'">';
 echo '<article id="descrip" style="background-color:white;">';
 while ($query->fetch())

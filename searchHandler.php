@@ -4,28 +4,25 @@ define('EMBEDDED',true);
 function trim_result($needle, $haystack, $isRecipe)
 {
 	$pos = stripos($haystack, $needle);
-	if($pos===FALSE)
+	if($pos===FALSE)	# if search term is not in the data returned from the database, no need to continue
 		return 0;
 	$skip = 0;
-	while($pos!==FALSE)
+	while($pos!==FALSE)	# while at least 1 search term is in the data
 	{
-		$start = (($pos - 50) >= 0) ? $pos - 50 : 0;
-		$temp = substr($haystack, $start, 100);
-		$temp = strip_tags($temp);
-		$temp = substr($temp, strpos($temp,">")+1, 100);
+		$start = (($pos - 50) >= 0) ? $pos - 50 : 0;		# extract fifty characters before and after search term, 
+		$temp = substr($haystack, $start, 100);				# while not going before start of data
+		$temp = strip_tags($temp);							# remove all HTML tags
+		$temp = substr($temp, strpos($temp,">")+1, 100);	# remove partial HTML tag at start of substring, if it should exist
 		$pos = stripos($haystack, $needle, $pos+1);
 		if(stripos($temp,$needle)===FALSE)
 			continue;
-		if($skip > 1)
+		if($skip > 1)	# if substring contains multiple occurances of search term, make sure only one substring is generated
 		{
 			$skip--;
 			$GLOBALS['numresults']++;
 			continue;
 		}
-		#$result = substr($temp, 0, strpos($temp,"<")-1);
-		#$rep = '<mark>'.$needle.'</mark>';
-		#$temp = str_ireplace($needle, $rep , $temp);
-		$temp = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $temp, -1, $skip);	// highlight search terms
+		$temp = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $temp, -1, $skip);	# highlight search terms
 		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		if(!$isRecipe)
 		{
