@@ -18,7 +18,9 @@ if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 {
       echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 }
-else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
+else if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'blackberry') || stripos($_SERVER['HTTP_USER_AGENT'],'Windows Phone') || stripos($_SERVER['HTTP_USER_AGENT'],'webOS')
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'Opera Mini') || (stripos($_SERVER['HTTP_USER_AGENT'],'Windows')&& stripos($_SERVER['HTTP_USER_AGENT'],'Touch')))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';

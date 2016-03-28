@@ -10,7 +10,8 @@ define('OSO_DB', true);
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A guide to the most important fruit grown in southern orchards prior to 1920">
-<meta name="keywords" content="old southern orchards, Southern orchards, David Shields, University of South Carolina, USC, fruit, Southern fruit">
+<meta name="keywords" content="old southern orchards, Southern orchards, David Shields, University of South Carolina, USC, fruit, Southern fruit,
+						Institute for Southern Studies, Center for Digital Humanities">
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <?php
@@ -21,7 +22,9 @@ if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
 	  $isFirefox=1;
 	  $isMobile=0;
 }
-else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
+else if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'blackberry') || stripos($_SERVER['HTTP_USER_AGENT'],'Windows Phone') || stripos($_SERVER['HTTP_USER_AGENT'],'webOS')
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'Opera Mini') || (stripos($_SERVER['HTTP_USER_AGENT'],'Windows')&& stripos($_SERVER['HTTP_USER_AGENT'],'Touch')))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';

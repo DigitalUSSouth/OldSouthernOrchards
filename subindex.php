@@ -12,12 +12,6 @@ function extractFruitName($name, $fruitName)
 	}
 	return $result;
 }
-function make_nbsp($num)
-{
-	for($x=0;$x<$num;$x++)
-		$spaces .= '&nbsp;';
-	return $spaces;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +22,9 @@ function make_nbsp($num)
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/OSO.js"></script>
 <?php
-if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
+if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'blackberry') || stripos($_SERVER['HTTP_USER_AGENT'],'Windows Phone') || stripos($_SERVER['HTTP_USER_AGENT'],'webOS')
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'Opera Mini') || (stripos($_SERVER['HTTP_USER_AGENT'],'Windows')&& stripos($_SERVER['HTTP_USER_AGENT'],'Touch')))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
@@ -36,7 +32,7 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_
 	$isMobile = 1;
 	$isFirefox = 0;
 }
-else if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') )
+else if (strpos($_SERVER['HTTP_USER_AGENT'],'Firefox'))
 {
      echo '<link rel="stylesheet" href="styles/style_firefox.css" type="text/css">';
 	 $isMobile = 0;
@@ -47,6 +43,10 @@ else
 	echo '<link rel="stylesheet" href="styles/style.css" type="text/css">';
 	$isMobile = 0;
 	$isFirefox = 0;
+	if(strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') || strpos($_SERVER['HTTP_USER_AGENT'], 'CriOS'))
+		$isChrome=1;
+	else
+		$isChrome=0;
 }
 
 if($isMobile===1)
@@ -139,7 +139,7 @@ header("Content-type: text/html; charset=utf-8");
  echo '<div id="container">';
  require('navBar.php');
  require('db_info.php');
- echo '<div id="subcontent">'
+ echo '<div id="subcontent">';
 ?>
 <?php
  $fruitName = $_GET['fruitName'];
@@ -186,24 +186,13 @@ $query->store_result();
 $query->bind_result($fileName, $name, $thumbName, $disp, $ro);
 $rowcount = 0;
 echo '<table style="padding-left:32px;">';
-echo '<caption id="fruitHeader">&nbsp;';
-if(!$isFirefox)	#for non_Firefox browser, extra spaces need to align header along left side of images
-	echo make_nbsp(5);
-echo $fruitName;
-if(!$isMobile)
-{
-	if($fruitName=='Kumquat')	# calculate needed spaces to align recipe link
-		echo make_nbsp(60 - strlen($fruitName));
-	else if($fruitName=='Crab Apple' || $fruitName=='Tangerine')
-		echo make_nbsp(90 - strlen($fruitName));
-	else if($fruitName=='Persimmon')
-		echo make_nbsp(88 - strlen($fruitName));
-	else
-		echo make_nbsp(93 - strlen($fruitName));
-}
+if($fruitName=='Kumquat')
+	echo '<tr><td colspan="2" style="padding-bottom:10px;padding-top:15px;">
+		<span id="fruitHeader">'.$fruitName.'</span></td><td style="text-align:center;">';
 else
-	echo make_nbsp(10);
-echo '<a href="recipe.php?fruitName='.$fruitName.'" style="text-decoration:none;font-size:11pt;color:#646b47;">View Recipes</a></caption><tbody><tr>';
+	echo '<tr><td colspan="3" style="padding-bottom:10px;padding-top:15px;"><span id="fruitHeader">'.$fruitName.'</span></td>
+			<td style="text-align:center;">';
+echo '<a href="recipe.php?fruitName='.$fruitName.'" style="text-decoration:none;font-size:11pt;color:#646b47;">View Recipes</a></td></tr><tbody><tr>';
 while ($query->fetch())
 {
 	if($disp==0)	# if this image is not meant to be displayed on the site for whatever reason, skip it.
@@ -217,7 +206,9 @@ while ($query->fetch())
 	else
 		echo '>';
 		echo '<img src="images/subimages/'.$fruitName.'/'.$thumbName.'" id="'.$name.'" alt="'.$name.'" style="margin-left:auto; margin-right:auto;" />';
-		echo '<div class="text-content" style="padding-top:'.$ro.'px;';	# add rollover text
+		if($name == 'Benham Brown Apple' && $isChrome)	#quirk
+			$ro=76;
+		echo '<div class="text-content" style="padding-top:'.$ro.'px;';	
 		if($ro==63)	# if rollover text takes up two lines, adjust div height so that rollover text remains centered.
 			echo ' height:117px;">';
 		else

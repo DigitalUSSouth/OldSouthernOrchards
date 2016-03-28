@@ -12,7 +12,9 @@ define('OSO_DB', true);
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/tinymce/tinymce.min.js"></script>
 <?php
-if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') || strpos($_SERVER['HTTP_USER_AGENT'], 'iPad'))
+if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'blackberry') || stripos($_SERVER['HTTP_USER_AGENT'],'Windows Phone') || stripos($_SERVER['HTTP_USER_AGENT'],'webOS')
+	|| stripos($_SERVER['HTTP_USER_AGENT'],'Opera Mini') || (stripos($_SERVER['HTTP_USER_AGENT'],'Windows')&& stripos($_SERVER['HTTP_USER_AGENT'],'Touch')))
 {
 	echo '<link rel="stylesheet" href="styles/style_mobile.css" type="text/css">';
 	echo '<link rel="stylesheet" href="styles/bootstrap.css" type="text/css">';
@@ -158,7 +160,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 		if($pnname)
 		{
 			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
-			echo '<input type="button" value="Previous fruit" 
+			echo '<input type="button" value="< Go to '.$pnname.'" 
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'">';
 		}
 	}
@@ -173,7 +175,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 		if($pnname)
 		{
 			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
-			echo '<input type="button" value="Next fruit" 
+			echo '<input type="button" value="Go to '.$pnname.' >" 
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'">';
 		}
 	}
