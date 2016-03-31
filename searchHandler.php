@@ -26,15 +26,15 @@ function trim_result($needle, $haystack, $isRecipe)
 		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		if(!$isRecipe)
 		{
-			$result .= '<span style="font-size:9pt;"><p style="clear:both"><span class="fruit_label">Fruit </span>
-			<a style="font-weight:bold;" 
-			href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a><br>'.$temp.'</p></span>';
+			$result .= '<table class="in_text"><tr><td><span class="fruit_label">Fruit </span>
+			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>
+			</td></tr><tr><td>'.$temp.'</td></tr></table>';
 		}
 		else
 		{
-			$result .= '<span style="font-size:9pt;"><p style="clear:both"><span class="fruit_label">Recipe </span>
-			<a style="font-weight:bold;" 
-			href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?name='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a><br>'.$temp.'</p></span>';
+			$result .= '<table class="in_text"><tr><td><span class="fruit_label"><span class="fruit_label">Recipe </span>
+			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?name='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a>
+			</td></tr><tr><td>'.$temp.'</td></tr></table>';
 		}
 		$GLOBALS['numresults']++;
 	}
@@ -67,10 +67,14 @@ else
 ?>
 <style>
 body {color:black;font-size:12pt;}
-a {text-decoration:none;font-size:14pt;color:#dd2e03;}
+a {text-decoration:none;font-size:14pt;color:#dd2e03;font-weight:bold;}
 a:hover {text-decoration:underline;}
-.fruit_label {font-size:16pt;padding-left:20px;}
-.recipe_label {font-size:16pt;padding-left:20px;}
+/*table {padding-left:20px;}*/
+.in_text {padding-top:20px;}
+.in_text td {font-size:9pt;padding-top:5px;}
+.fruit_label {font-size:16pt;}
+.recipe_label {font-size:16pt;}
+.nav {font-weight:normal;}
 </style>
 </head>
 <body>
@@ -128,10 +132,10 @@ else if($type==3)	// search all
 	$allresults .= search_recipes();
 }
 echo '<br><span style="color:#dd2e03;font-size:16pt;">Orchards</span><br>';
-echo '<br><span class="search_style">Search Results ('.$numresults.') for \''.$term.'\'</span><br><br>';
+echo '<br><span class="search_style">Search Results ('.$numresults.') for \''.$term.'\'</span><br><hr>';
 echo $allresults;
 $numresults=0;
-echo '<br><span>Not what you were looking for? </span><a href="search.php">Search again</a>';
+echo '<br><br><span>Not what you were looking for? </span><a href="search.php">Search again</a>';
 $query->close();
 echo '</div></div></body></html>';
 function search_fruits()
@@ -151,8 +155,8 @@ function search_fruits()
 		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		$results .= '<table><tr><td><img src="images/subimages/'.$GLOBALS['fruitname'].'/'.$GLOBALS['thumbname'].'" id="'.$GLOBALS['name'].'" 
 			alt="'.$GLOBALS['name'].'" style="width:100px;height:100px;"></td>';
-		$results .= '<td><span class="fruit_label">Fruit </span>
-			<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
+		$results .= '<td><span class="fruit_label">&nbsp;&nbsp;&nbsp;&nbsp;Fruit </span>
+			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>';
 		$results .= '</td></tr></table>';
 	}
 	# Now, we search the description on the subsubindex pages
@@ -188,8 +192,8 @@ function search_recipes()
 	while ($query->fetch())
 	{
 		$GLOBALS['numresults']++;
-		$results .= '<span class="recipe_label">Recipes </span>
-				<a style="font-weight:bold;" href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a><br>';
+		$results .= '<table style="padding-bottom:20px;"><tr><td><span class="recipe_label">Recipes </span>
+			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?fruitName='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a></td></tr></table>';
 	}
 	$sql = "SELECT fruit, content FROM recipes WHERE content LIKE '%".$GLOBALS['term']."%'";
 	$query = $GLOBALS['con2']->prepare($sql);

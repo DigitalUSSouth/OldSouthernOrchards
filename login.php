@@ -54,7 +54,7 @@ echo '		</td>
 				&nbsp;
 			</td>
 		</tr>
-	</table';
+	</table>';
 ?>
 </body>
 </html>

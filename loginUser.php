@@ -48,7 +48,10 @@ if (mysql_numrows($result) == 1)
 		$_SESSION['ISLOGGEDIN']='1';
 	}	
 	//successful login, let the user know
-	header('Location: index.php'); 
+	if(isset($_POST['referer']) && $_POST['referer'] !='')
+		header('Location: '.$_POST['referer']);
+	else
+		header('Location: index.php'); 
 }
 //close connection with database
 mysql_close($con);

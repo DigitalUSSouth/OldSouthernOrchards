@@ -22,4 +22,5 @@ else
 }
 echo '<a class="nav" href="about.php">ABOUT</a> ';
 echo '</div>';
+$referer = $_SERVER['HTTP_REFERER'];
 ?>
