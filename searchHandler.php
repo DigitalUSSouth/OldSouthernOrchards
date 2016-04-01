@@ -10,11 +10,13 @@ function trim_result($needle, $haystack, $isRecipe)
 	while($pos!==FALSE)	# while at least 1 search term is in the data
 	{
 		$start = (($pos - 50) >= 0) ? $pos - 50 : 0;		# extract fifty characters before and after search term, 
-		$temp = substr($haystack, $start, 100);				# while not going before start of data
-		$temp = strip_tags($temp);							# remove all HTML tags
-		$temp = substr($temp, strpos($temp,">")+1, 100);	# remove partial HTML tag at start of substring, if it should exist
-		$pos = stripos($haystack, $needle, $pos+1);
-		if(stripos($temp,$needle)===FALSE)
+		$ss = substr($haystack, $start, 100);				# while not going before start of data
+		$ss = strip_tags($ss);								# remove all HTML tags
+		$ss = substr($ss, strpos($ss,'>'), 100);			# remove partial HTML tag at start of substring, if it should exist
+		if($ss[0]=='>')										# if end character of tag remains, remove it
+			$ss = substr($ss, 1);
+		$pos = stripos($haystack, $needle, $pos+1);			# prevent infinite loop
+		if(stripos($ss,$needle)===FALSE)					# make sure substring actually contains the search term
 			continue;
 		if($skip > 1)	# if substring contains multiple occurances of search term, make sure only one substring is generated
 		{
@@ -22,19 +24,19 @@ function trim_result($needle, $haystack, $isRecipe)
 			$GLOBALS['numresults']++;
 			continue;
 		}
-		$temp = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $temp, -1, $skip);	# highlight search terms
+		$ss = preg_replace("/($needle)/i", sprintf('<mark>$1</mark>'), $ss, -1, $skip);	# highlight search terms
 		$GLOBALS['name'] = preg_replace("/\s\d$/", sprintf(''), $GLOBALS['name']);	# if fruit image name end with number, get rid of it
 		if(!$isRecipe)
 		{
 			$result .= '<table class="in_text"><tr><td><span class="fruit_label">Fruit </span>
 			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$GLOBALS['name'].'">'.$GLOBALS['name'].'</a>
-			</td></tr><tr><td>'.$temp.'</td></tr></table>';
+			</td></tr><tr><td>'.$ss.'</td></tr></table>';
 		}
 		else
 		{
 			$result .= '<table class="in_text"><tr><td><span class="fruit_label"><span class="fruit_label">Recipe </span>
 			<a href="http://lichen.csd.sc.edu/oldsouthernorchards/recipe.php?name='.$GLOBALS['fruit'].'">'.$GLOBALS['fruit'].'</a>
-			</td></tr><tr><td>'.$temp.'</td></tr></table>';
+			</td></tr><tr><td>'.$ss.'</td></tr></table>';
 		}
 		$GLOBALS['numresults']++;
 	}
