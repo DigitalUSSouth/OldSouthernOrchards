@@ -12,8 +12,8 @@ define('OSO_DB', true);
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/tinymce/tinymce.min.js"></script>
 <style>
-input {background-color:rgba(93,85,84,1.0);color:white;border-style:none;font-size:13pt;}
-input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {background-color:rgba(93,85,84,0.8);}
+input {background-color:rgba(93,85,84,1.0);color:white;border-style:none;font-size:13pt;border-radius:6px;padding:3px;}
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {background-color:rgba(93,85,84,0.7);}
 </style>
 <?php
 if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
@@ -149,11 +149,11 @@ $query->close();
 if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 {
 	echo '<table><tr>';
-	echo '<td><input type="submit" /></td>';
-	echo '<td><input type="reset" /></td>';
+	echo '<td><input type="submit" value=" Submit "></td>';
+	echo '<td><input type="reset" value=" Reset "></td>';
 	# add button to subindex page
 	$subind = 'http://lichen.csd.sc.edu/oldsouthernorchards/subindex.php?fruitName='.$fruitType;
-	echo '<td><input type="button" value="Return to subindex page" onClick="window.location.href=\''.$subind.'\'"></td>';
+	echo '<td><input type="button" value=" Return to subindex page " onClick="window.location.href=\''.$subind.'\'"></td>';
 	# add previous image button
 	$query = $con2->prepare("SELECT MAX(name) FROM sub_orc_data WHERE name < ? AND fruitname = ? AND display = 1");
 	$query->bind_param('ss', $fruitName, $fruitType);
@@ -165,7 +165,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 		if($pnname)
 		{
 			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
-			echo '<td><input type="button" value="< Go to '.str_ireplace("\'","'",$pnname).'" 
+			echo '<td><input type="button" value=" < Go to '.str_ireplace("\'","'",$pnname).'" 
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'"></td>';
 		}
 	}
@@ -180,7 +180,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 		if($pnname)
 		{
 			$pnname = str_ireplace("'", "\'", $pnname);	#escape any apostrophes in fruit's name
-			echo '<td><input type="button" value="Go to '.str_ireplace("\'","'",$pnname).' >" 
+			echo '<td><input type="button" value=" Go to '.str_ireplace("\'","'",$pnname).' > " 
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'"></td>';
 		}
 	}
