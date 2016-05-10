@@ -184,7 +184,7 @@ if($_SESSION['ISLOGGEDIN']=='1' && $_SESSION['ISADMIN']=='1')
 				onClick="window.location.href=\'http://lichen.csd.sc.edu/oldsouthernorchards/subsubindex.php?name='.$pnname.'\'"></td>';
 		}
 	}
-	echo '</tr></table>';
+	echo '<td style="width:100%">&nbsp;</td></tr></table>';
 }
 echo '</form>';
 echo '</div></div>';

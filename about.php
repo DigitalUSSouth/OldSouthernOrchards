@@ -10,6 +10,10 @@ define('OSO_DB', true);
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="scripts/OSO.js"></script>
+<style>
+input {background-color:rgba(93,85,84,1.0);color:white;border-style:none;font-size:13pt;border-radius:6px;padding:3px;}
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {background-color:rgba(93,85,84,0.7);}
+</style>
 <?php
 if(stripos($_SERVER['HTTP_USER_AGENT'],'Android') || stripos($_SERVER['HTTP_USER_AGENT'],'iPhone') || stripos($_SERVER['HTTP_USER_AGENT'],'iPad') 
 	|| stripos($_SERVER['HTTP_USER_AGENT'],'blackberry') || stripos($_SERVER['HTTP_USER_AGENT'],'Windows Phone') || stripos($_SERVER['HTTP_USER_AGENT'],'webOS')
@@ -212,9 +216,11 @@ echo '<form method="post" action="aboutHandler.php">
         </div>';
 		if(isset($_SESSION['ISLOGGEDIN']) && $_SESSION['ISLOGGEDIN']=='1' && isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN']=='1')
 		{
-			echo '<input type="submit">';
-			echo '<input type="reset">';
-			echo '<input type="button" value="Return to index page" onClick="window.location.href=\'index.php\';">';
+			echo '<table><tr>';
+			echo '<td><input type="submit"></td>';
+			echo '<td><input type="reset"></td>';
+			echo '<td><input type="button" value="Return to index page" onClick="window.location.href=\'index.php\';"></td>';
+			echo '<td style="width:100%">&nbsp;</td></tr></table>';
 		}
 	echo '</form>
 </div>';
