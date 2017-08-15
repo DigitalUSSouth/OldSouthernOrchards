@@ -6,4 +6,6 @@ function getPassword(){return 'password';}
 
 function getDB(){return 'DB';}
 
+function getHost(){return 'host';}
+
 ?>
